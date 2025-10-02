@@ -1,0 +1,259 @@
+import React, { memo, useState } from 'react';
+import './SnapchatAccounts.css';
+
+const SnapchatAccounts = memo(() => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+  const [selectedSort, setSelectedSort] = useState('ترتيب مقترحاتنا');
+  
+  const products = [
+    {
+      id: 1,
+      title: 'حساب سناب شات 500 الف نقطة',
+      price: '500 ريال',
+      oldPrice: null,
+      discount: null,
+      rating: '5★'
+    },
+    {
+      id: 2,
+      title: 'حساب سناب شات 200 الف نقطة',
+      price: '200 ريال',
+      oldPrice: null,
+      discount: null,
+      rating: null
+    },
+    {
+      id: 3,
+      title: 'حساب سناب شات 100 الف نقطة',
+      price: '140 ريال',
+      oldPrice: '200 ريال',
+      discount: '30%',
+      rating: '5★'
+    },
+    {
+      id: 4,
+      title: 'حساب سناب شات 50 الف نقطة',
+      price: '90 ريال',
+      oldPrice: '100 ريال',
+      discount: '10%',
+      rating: null
+    }
+  ];
+
+  // Function to get correct product count text
+  const getProductCountText = (num) => {
+    if (num === 0) return 'لا توجد منتجات';
+    if (num === 1) return 'منتج واحد';
+    if (num === 2) return 'منتجين';
+    if (num >= 3 && num <= 10) return `${num} منتجات`;
+    if (num > 10) return `${num} منتج`;
+    
+    return `${num} منتج`;
+  };
+
+  const reviews = [
+    {
+      id: 1,
+      text: "حسابات موثوقة وجودة عالية",
+      name: "عمر الشهري",
+      date: "02/10/2024",
+      rating: 5
+    },
+    {
+      id: 2,
+      text: "خدمة ممتازة وتسليم سريع",
+      name: "ريم العنزي",
+      date: "01/28/2024",
+      rating: 5
+    },
+    {
+      id: 3,
+      text: "أفضل موقع لشراء حسابات سناب شات",
+      name: "سعود القحطاني",
+      date: "01/15/2024",
+      rating: 5
+    }
+  ];
+
+  // Slider navigation functions
+  const nextReview = () => {
+    setCurrentReviewIndex((prev) => (prev + 1) % reviews.length);
+  };
+
+  const prevReview = () => {
+    setCurrentReviewIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
+  };
+
+  const goToReview = (index) => {
+    setCurrentReviewIndex(index);
+  };
+
+  // Sort options
+  const sortOptions = [
+    'ترتيب مقترحاتنا',
+    'الأحدث أولاً',
+    'الأقدم أولاً',
+    'الأقل سعراً',
+    'الأعلى سعراً',
+    'الأكثر شعبية'
+  ];
+
+  const handleSortSelect = (option) => {
+    setSelectedSort(option);
+    setIsDropdownOpen(false);
+  };
+
+  return (
+    <div className="snapchat-accounts">
+      {/* Main Content */}
+      <main className="snapchat-accounts__main">
+        <div className="snapchat-accounts__container">
+          <div className="snapchat-accounts__sub-nav">
+            <div className="snapchat-accounts__dropdown-container">
+              <button 
+                className="snapchat-accounts__sort-btn"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              >
+                {selectedSort}
+                <span className="snapchat-accounts__dropdown-arrow">
+                  {isDropdownOpen ? '▲' : '▼'}
+                </span>
+              </button>
+              
+              {isDropdownOpen && (
+                <div className="snapchat-accounts__dropdown-menu">
+                  {sortOptions.map((option, index) => (
+                    <button 
+                      key={index}
+                      className={`snapchat-accounts__dropdown-item ${option === selectedSort ? 'selected' : ''}`}
+                      onClick={() => handleSortSelect(option)}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            
+            <div className="snapchat-accounts__counter">
+              <span className="snapchat-accounts__counter-text">
+                عرض {getProductCountText(products.length)}
+              </span>
+            </div>
+          </div>
+          
+          <div className="snapchat-accounts__products">
+            {products.map((product) => (
+              <div key={product.id} className="snapchat-accounts__product-card">
+                <div className="snapchat-accounts__product-header">
+                  <div className="snapchat-accounts__product-logo">
+                    <span className="snapchat-accounts__product-logo-letter">Z</span>
+                  </div>
+                  <span className="snapchat-accounts__snapchat-icon">👻</span>
+                  <div className="snapchat-accounts__product-line"></div>
+                  <h3 className="snapchat-accounts__product-subtitle">حسابات</h3>
+                  {product.rating && (
+                    <>
+                      <span className="snapchat-accounts__star">⭐</span>
+                      <span className="snapchat-accounts__badge">{product.rating}</span>
+                    </>
+                  )}
+                  {product.discount && (
+                    <span className="snapchat-accounts__discount-badge">- {product.discount}</span>
+                  )}
+                </div>
+                <div className="snapchat-accounts__product-content">
+                  <h4 className="snapchat-accounts__product-title">{product.title}</h4>
+                  <div className="snapchat-accounts__price-container">
+                    <p className="snapchat-accounts__product-price">{product.price}</p>
+                    {product.oldPrice && (
+                      <p className="snapchat-accounts__product-old-price">{product.oldPrice}</p>
+                    )}
+                  </div>
+                  <div className="snapchat-accounts__product-actions">
+                    <button className="snapchat-accounts__favorite-btn">❤️</button>
+                    <button className="snapchat-accounts__add-to-cart">
+                      <span className="snapchat-accounts__cart-icon">🛒</span>
+                      أضف للسلة
+                    </button>
+                    <button className="snapchat-accounts__contact-btn">راسلنا</button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Customer Reviews Section */}
+          <section className="snapchat-accounts__reviews">
+            <div className="snapchat-accounts__reviews-header">
+              <h3 className="snapchat-accounts__reviews-title">آراء العملاء</h3>
+            </div>
+            
+            <div className="snapchat-accounts__reviews-container">
+              <button 
+                className="snapchat-accounts__slider-btn snapchat-accounts__slider-btn--prev"
+                onClick={prevReview}
+                aria-label="السابق"
+              >
+                ‹
+              </button>
+              
+              <button 
+                className="snapchat-accounts__slider-btn snapchat-accounts__slider-btn--next"
+                onClick={nextReview}
+                aria-label="التالي"
+              >
+                ›
+              </button>
+              
+              <div className="snapchat-accounts__reviews-slider">
+                <div 
+                  className="snapchat-accounts__reviews-track"
+                  style={{ transform: `translateX(-${currentReviewIndex * 100}%)` }}
+                >
+                  <div className="snapchat-accounts__reviews-grid">
+                    {reviews.map((review) => (
+                      <div key={review.id} className="snapchat-accounts__review-card">
+                        <div className="snapchat-accounts__review-rating">
+                          <span className="snapchat-accounts__star">⭐</span>
+                          <span className="snapchat-accounts__rating-number">{review.rating}</span>
+                        </div>
+                        
+                        <div className="snapchat-accounts__reviewer">
+                          <div className="snapchat-accounts__reviewer-avatar">
+                            <div className="snapchat-accounts__avatar-icon">👤</div>
+                          </div>
+                          <div className="snapchat-accounts__reviewer-info">
+                            <h4 className="snapchat-accounts__reviewer-name">{review.name}</h4>
+                            <span className="snapchat-accounts__reviewer-date">{review.date}</span>
+                          </div>
+                        </div>
+                        
+                        <div className="snapchat-accounts__review-content">
+                          <div className="snapchat-accounts__quote-open">"</div>
+                          <p className="snapchat-accounts__review-text">{review.text}</p>
+                          <div className="snapchat-accounts__quote-close">"</div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  );
+});
+
+SnapchatAccounts.displayName = 'SnapchatAccounts';
+
+export default SnapchatAccounts;
+
+
+
+
+
+
