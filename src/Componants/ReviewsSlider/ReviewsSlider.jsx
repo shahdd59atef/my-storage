@@ -59,7 +59,7 @@ const ReviewsSlider = memo(function ReviewsSlider() {
       <div className="reviews-slider__container">
         <div className="reviews-slider__header">
           <h2 className="reviews-slider__title">آراء العملاء</h2>
-          <a href="#all-reviews" className="reviews-slider__view-all">عرض الكل</a>
+          <a href="/all-reviews" className="reviews-slider__view-all">عرض المزيد</a>
         </div>
 
         <div className="reviews-slider__wrapper">

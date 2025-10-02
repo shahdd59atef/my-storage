@@ -66,7 +66,7 @@ const SocialServicesSlider = memo(function SocialServicesSlider() {
       <div className="social-services__container">
         <div className="social-services__header">
           <h2 className="social-services__title">خدمات السوشيال ميديا</h2>
-          <a href="#all" className="social-services__view-all">عرض الكل</a>
+          <a href="/social-media-services" className="social-services__view-all">عرض الكل</a>
         </div>
 
         <div className="social-services__wrapper">

@@ -42,10 +42,10 @@ const Navbar = memo(() => {
     <nav className="bg-white py-2 relative z-[1000] shadow-[0_4px_15px_rgba(255,107,53,0.15)] border border-[#ff6b35] rounded-xl my-4 mx-4 lg:mx-10 -mb-10">
       <div className="max-w-[900px] mx-auto px-4 flex flex-col gap-1">
         {/* Header: Logo and Mobile Menu Button */}
-        <div className="flex items-center justify-between w-full lg:hidden py-2">
-          <div className="flex-1">
+        <div className="flex items-center justify-between w-full lg:hidden py-0">
+          <div className="flex-1 -ml-4">
             <a href="/" className="no-underline flex items-center">
-              <img src="/Storage.png" alt="Storage Logo" className="h-[80px] w-auto" />
+              <img src="/Storage.png" alt="Storage Logo" className="h-[90px] w-auto" />
             </a>
           </div>
           
@@ -283,9 +283,9 @@ const Navbar = memo(() => {
 
         {/* Logo and Icons Row - Desktop Only */}
         <div className="hidden lg:flex items-start justify-between w-full gap-6 pb-1">
-          <div className="mr-auto">
+          <div className="mr-auto -ml-4">
             <a href="/" className="no-underline flex items-center">
-              <img src="/Storage.png" alt="Storage Logo" className="h-[220px] w-auto -mt-32" />
+              <img src="/Storage.png" alt="Storage Logo" className="h-[220px] w-auto -mt-36" />
             </a>
           </div>
           

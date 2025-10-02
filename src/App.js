@@ -34,6 +34,7 @@ import Usernames from './Componants/Usernames/Usernames';
 import Footer from './Componants/Footer/Footer';
 import WhatsAppButton from './Componants/WhatsAppButton/WhatsAppButton';
 import WhyChooseUs2 from './Componants/WhyChooseUs2/WhyChooseUs2';
+import AllReviews from './Componants/AllReviews/AllReviews';
 import './App.css';
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
           <Route path="/accounts-management" element={<PageAccountsManagement />} />
           <Route path="/graphic-design" element={<PageGraphicDesign />} />
           <Route path="/web-apps" element={<PageWebApps />} />
+          <Route path="/all-reviews" element={<AllReviews />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

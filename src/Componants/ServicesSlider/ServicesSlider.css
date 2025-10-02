@@ -77,21 +77,56 @@
 
 .services__controls { display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 2rem; }
 .services__arrow { 
-  background: #e5e7eb; 
-  color: #374151; 
+  background: linear-gradient(135deg, #ff6b35, #ffa500);
+  color: #ffffff;
   border: 0; 
-  width: 40px; 
-  height: 40px; 
+  width: 45px; 
+  height: 45px; 
   border-radius: 50%; 
   cursor: pointer; 
   display: grid; 
   place-items: center;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: bold;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  position: relative;
 }
+
+.services__arrow::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 107, 53, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.services__arrow:hover::before {
+  opacity: 1;
+  animation: pulse-ring 1.5s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
 .services__arrow:hover { 
-  background: #d1d5db; 
-  transform: scale(1.1);
+  background: linear-gradient(135deg, #ffa500, #ff6b35);
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+}
+
+.services__arrow:active {
+  transform: scale(0.95);
 }
 .services__dots { display: flex; gap: 8px; justify-content: center; }
 .services__dot { 
@@ -201,9 +236,9 @@
   }
 
   .services__arrow {
-    width: 38px;
-    height: 38px;
-    font-size: 1.4rem;
+    width: 42px;
+    height: 42px;
+    font-size: 1.7rem;
   }
 
   .services__dots {
@@ -266,15 +301,9 @@
   }
 
   .services__arrow {
-    width: 36px;
-    height: 36px;
-    font-size: 1.3rem;
-    background: #ff6b35;
-    color: #ffffff;
-  }
-
-  .services__arrow:hover {
-    background: #ff8555;
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
   }
 
   .services__dots {
@@ -333,9 +362,9 @@
   }
 
   .services__arrow {
-    width: 34px;
-    height: 34px;
-    font-size: 1.2rem;
+    width: 38px;
+    height: 38px;
+    font-size: 1.5rem;
   }
 
   .services__dot {

@@ -361,34 +361,10 @@
 
 .social-media-services__products-slider-btn--prev {
   left: 10px;
-  animation: slideFromLeft 0.8s ease-out;
 }
 
 .social-media-services__products-slider-btn--next {
   right: 10px;
-  animation: slideFromRight 0.8s ease-out;
-}
-
-@keyframes slideFromLeft {
-  0% {
-    opacity: 0;
-    transform: translateY(-50%) translateX(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-  }
-}
-
-@keyframes slideFromRight {
-  0% {
-    opacity: 0;
-    transform: translateY(-50%) translateX(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-  }
 }
 
 /* Dots Indicators */
