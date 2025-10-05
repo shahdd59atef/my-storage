@@ -2,10 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import './Stats.css';
 
 export default function Stats() {
-  const [scrollY, setScrollY] = useState(0);
+  const [counts, setCounts] = useState([0, 0, 0, 0]);
   const [isScrolling, setIsScrolling] = useState(false);
-  const scrollTimeout = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+  const scrollTimeoutRef = useRef(null);
+  const animationFrameRef = useRef(null);
+  const startTimeRef = useRef(null);
   
   const stats = [
     { value: 440, label: 'وقفوا حساباتهم معنا بنجاح' },
@@ -14,43 +17,86 @@ export default function Stats() {
     { value: 670, label: 'حصلوا تفاعل وحضور قوي' }
   ];
 
+  // Detect when section becomes visible and handle scroll
   useEffect(() => {
     const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const sectionTop = rect.top;
-        const sectionHeight = rect.height;
-        const windowHeight = window.innerHeight;
+      if (!sectionRef.current) return;
+      
+      const rect = sectionRef.current.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight && rect.bottom > 0;
+      
+      if (inView && !isVisible) {
+        setIsVisible(true);
+      }
+      
+      if (inView) {
+        setIsScrolling(true);
         
-        // Calculate scroll position relative to the section
-        const scrollProgress = Math.max(0, Math.min(1, (windowHeight - sectionTop) / (windowHeight + sectionHeight)));
-        setScrollY(scrollProgress);
+        // Clear previous timeout
+        if (scrollTimeoutRef.current) {
+          clearTimeout(scrollTimeoutRef.current);
+        }
+        
+        // Set new timeout to detect when scrolling stops
+        scrollTimeoutRef.current = setTimeout(() => {
+          setIsScrolling(false);
+        }, 150);
       }
-      
-      // Set scrolling state
-      setIsScrolling(true);
-      
-      // Clear previous timeout
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-      
-      // Set timeout to detect when scrolling stops
-      scrollTimeout.current = setTimeout(() => {
-        setIsScrolling(false);
-      }, 150);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial call
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
       }
     };
-  }, []);
+  }, [isVisible]);
+
+  // Animation while scrolling
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const animate = (timestamp) => {
+      if (!startTimeRef.current) {
+        startTimeRef.current = timestamp;
+      }
+
+      const elapsed = timestamp - startTimeRef.current;
+      
+      if (isScrolling) {
+        // While scrolling: count continuously but slowly
+        const slowProgress = Math.min(elapsed / 10000, 1); // Very slow, 10 seconds to complete
+        setCounts(stats.map(stat => Math.floor(stat.value * slowProgress)));
+        
+        if (slowProgress < 1) {
+          animationFrameRef.current = requestAnimationFrame(animate);
+        }
+      } else {
+        // When scrolling stops: quickly complete to final values
+        const quickProgress = Math.min(elapsed / 800, 1); // Fast completion in 0.8 seconds
+        setCounts(stats.map(stat => Math.floor(stat.value * quickProgress)));
+        
+        if (quickProgress < 1) {
+          animationFrameRef.current = requestAnimationFrame(animate);
+        } else {
+          setCounts(stats.map(stat => stat.value));
+        }
+      }
+    };
+
+    // Reset start time when scrolling state changes
+    startTimeRef.current = null;
+    animationFrameRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [isScrolling, isVisible]);
 
   return (
     <section className="stats" dir="rtl" ref={sectionRef}>
@@ -58,27 +104,18 @@ export default function Stats() {
         <h2 className="stats__title">انضم لآلاف التجار الآن</h2>
         <div className="stats__divider" />
         <div className="stats__grid">
-          {stats.map((stat, index) => {
-            // Calculate current value based on scroll and scrolling state
-            const currentValue = isScrolling 
-              ? Math.floor(stat.value * scrollY)
-              : stat.value;
-            
-            return (
-              <div key={index} className="stats__item">
-                <div className="stats__num">
-                  <span className={isScrolling ? 'stats__num--animating' : 'stats__num--stable'}>
-                    {currentValue.toLocaleString('en-US')}
-                  </span>+
-                </div>
-                <div className="stats__label">{stat.label}</div>
+          {stats.map((stat, index) => (
+            <div key={index} className="stats__item">
+              <div className="stats__num">
+                <span className={isScrolling ? 'stats__num--animating' : 'stats__num--stable'}>
+                  {counts[index].toLocaleString('en-US')}
+                </span>+
               </div>
-            );
-          })}
+              <div className="stats__label">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
-
