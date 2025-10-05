@@ -31,6 +31,21 @@ const DesignSlider = memo(function DesignSlider() {
       subtitle: 'خدمات تصميم بصمية إبداعا في كل دقيقة الأجل',
       image: '/service-3.png',
       price: 25
+    },
+    {
+      id: 5,
+      title: 'تصميم بروشورات ومطبوعات',
+      subtitle: 'تصميم بروشورات احترافية لنشاطك التجاري',
+      image: '/service-3.png',
+      price: 400,
+      oldPrice: 600,
+      saved: 200
+    },
+    {
+      id: 6,
+      title: 'تصميم بطاقات أعمال',
+      image: '/service-3.png',
+      price: 150
     }
   ];
 
@@ -65,22 +80,6 @@ const DesignSlider = memo(function DesignSlider() {
         <h2 className="design-slider__title">التصميم الجرافيكي</h2>
 
         <div className="design-slider__wrapper">
-          <button 
-            className="design-slider__nav-btn design-slider__nav-btn--prev"
-            onClick={prevSlide}
-            aria-label="السابق"
-          >
-            ‹
-          </button>
-          
-          <button 
-            className="design-slider__nav-btn design-slider__nav-btn--next"
-            onClick={nextSlide}
-            aria-label="التالي"
-          >
-            ›
-          </button>
-
           <div className="design-slider__track" style={{ transform: `translateX(-${index * (100/visible)}%)` }}>
             {designs.map((design) => (
               <div key={design.id} className="design-slider__card">
@@ -107,6 +106,16 @@ const DesignSlider = memo(function DesignSlider() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="design-slider__controls">
+          <button className="design-slider__arrow" onClick={prevSlide} aria-label="السابق">‹</button>
+          <div className="design-slider__dots">
+            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+              <button key={i} className={`design-slider__dot ${i===index? 'is-active':''}`} onClick={() => setIndex(i)} aria-label={`شريحة ${i+1}`} />
+            ))}
+          </div>
+          <button className="design-slider__arrow" onClick={nextSlide} aria-label="التالي">›</button>
         </div>
       </div>
     </section>

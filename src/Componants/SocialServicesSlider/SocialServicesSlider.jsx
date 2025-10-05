@@ -33,6 +33,16 @@ const SocialServicesSlider = memo(function SocialServicesSlider() {
       price: 150,
       oldPrice: 200,
       saved: 50
+    },
+    {
+      id: 4,
+      title: 'حساب تيك توك | 50k متابع',
+      background: '#1a1a1a',
+      icon: '🎵',
+      platform: 'حساب تيك توك',
+      price: 800,
+      oldPrice: 1200,
+      saved: 400
     }
   ];
 
@@ -70,22 +80,6 @@ const SocialServicesSlider = memo(function SocialServicesSlider() {
         </div>
 
         <div className="social-services__wrapper">
-          <button 
-            className="social-services__nav-btn social-services__nav-btn--prev"
-            onClick={prevSlide}
-            aria-label="السابق"
-          >
-            ‹
-          </button>
-          
-          <button 
-            className="social-services__nav-btn social-services__nav-btn--next"
-            onClick={nextSlide}
-            aria-label="التالي"
-          >
-            ›
-          </button>
-
           <div className="social-services__track" style={{ transform: `translateX(-${index * (100/visible)}%)` }}>
             {services.map((service) => (
               <div key={service.id} className="social-services__card">
@@ -113,6 +107,15 @@ const SocialServicesSlider = memo(function SocialServicesSlider() {
           </div>
         </div>
 
+        <div className="social-services__controls">
+          <button className="social-services__arrow" onClick={prevSlide} aria-label="السابق">‹</button>
+          <div className="social-services__dots">
+            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+              <button key={i} className={`social-services__dot ${i===index? 'is-active':''}`} onClick={() => setIndex(i)} aria-label={`شريحة ${i+1}`} />
+            ))}
+          </div>
+          <button className="social-services__arrow" onClick={nextSlide} aria-label="التالي">›</button>
+        </div>
       </div>
     </section>
   );

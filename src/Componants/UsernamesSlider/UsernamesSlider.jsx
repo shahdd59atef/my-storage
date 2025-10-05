@@ -40,6 +40,24 @@ const UsernamesSlider = memo(function UsernamesSlider() {
       icon: '📷',
       subtitle: 'يوزرات ثلاثية',
       price: 2500
+    },
+    {
+      id: 5,
+      title: 'يوزر تويتر رباعي',
+      background: 'linear-gradient(135deg, #1da1f2 0%, #0c7abf 100%)',
+      icon: '🐦',
+      subtitle: 'يوزرات رباعية',
+      price: 150,
+      oldPrice: 350,
+      saved: 200
+    },
+    {
+      id: 6,
+      title: 'يوزر سناب شات رباعي',
+      background: 'linear-gradient(135deg, #FFFC00 0%, #FFA500 100%)',
+      icon: '👻',
+      subtitle: 'يوزرات رباعية',
+      price: 300
     }
   ];
 
@@ -74,22 +92,6 @@ const UsernamesSlider = memo(function UsernamesSlider() {
         <h2 className="usernames-slider__title">يوزرات حصرية</h2>
 
         <div className="usernames-slider__wrapper">
-          <button 
-            className="usernames-slider__nav-btn usernames-slider__nav-btn--prev"
-            onClick={prevSlide}
-            aria-label="السابق"
-          >
-            ‹
-          </button>
-          
-          <button 
-            className="usernames-slider__nav-btn usernames-slider__nav-btn--next"
-            onClick={nextSlide}
-            aria-label="التالي"
-          >
-            ›
-          </button>
-
           <div className="usernames-slider__track" style={{ transform: `translateX(-${index * (100/visible)}%)` }}>
             {usernames.map((username) => (
               <div key={username.id} className="usernames-slider__card">
@@ -116,6 +118,16 @@ const UsernamesSlider = memo(function UsernamesSlider() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="usernames-slider__controls">
+          <button className="usernames-slider__arrow" onClick={prevSlide} aria-label="السابق">‹</button>
+          <div className="usernames-slider__dots">
+            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+              <button key={i} className={`usernames-slider__dot ${i===index? 'is-active':''}`} onClick={() => setIndex(i)} aria-label={`شريحة ${i+1}`} />
+            ))}
+          </div>
+          <button className="usernames-slider__arrow" onClick={nextSlide} aria-label="التالي">›</button>
         </div>
       </div>
     </section>

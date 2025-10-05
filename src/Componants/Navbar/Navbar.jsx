@@ -42,10 +42,10 @@ const Navbar = memo(() => {
     <nav className="bg-white py-2 relative z-[1000] shadow-[0_4px_15px_rgba(255,107,53,0.15)] border border-[#ff6b35] rounded-xl my-4 mx-4 lg:mx-10 -mb-10">
       <div className="max-w-[900px] mx-auto px-4 flex flex-col gap-1">
         {/* Header: Logo and Mobile Menu Button */}
-        <div className="flex items-center justify-between w-full lg:hidden py-0">
-          <div className="flex-1 -ml-4">
+        <div className="flex items-center justify-between w-full lg:hidden py-2">
+          <div className="flex-1">
             <a href="/" className="no-underline flex items-center">
-              <img src="/Storage.png" alt="Storage Logo" className="h-[90px] w-auto" />
+              <img src="/Storage.png" alt="Storage Logo" className="h-[80px] w-auto" />
             </a>
           </div>
           
@@ -69,10 +69,7 @@ const Navbar = memo(() => {
             <span className={`w-[25px] h-[3px] bg-[#ff6b35] rounded-sm transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-[8px]' : ''}`}></span>
           </button>
         </div>
-
-        {/* Menu - Two Rows - Desktop Only */}
         <div className="w-full hidden lg:flex flex-col items-center gap-1">
-          {/* First Row */}
           <ul className="flex items-center justify-center gap-6 list-none m-0 p-0 flex-row-reverse pt-1">
             <li className="relative">
               <a href="/blog" className={linkClass}>المدونة</a>
@@ -80,8 +77,6 @@ const Navbar = memo(() => {
 
             <li className="relative" onMouseEnter={() => handleMouseEnter('social')} onMouseLeave={handleMouseLeave}>
               <a href="/social-media-services" className={linkClass}>خدمات مواقع التواصل الاجتماعي <span className="text-[8px] mr-1 text-[#bbbbbb]">▼</span></a>
-              
-              {/* Dropdown Menu */}
               {openDropdown === 'social' && (
                 <div 
                   className="absolute top-full right-0 mt-2 bg-white rounded-lg shadow-[0_8px_20px_rgba(255,107,53,0.2)] min-w-[280px] p-3 z-50"
@@ -262,8 +257,23 @@ const Navbar = memo(() => {
                 </div>
               )}
             </li>
-            <li className="relative" onMouseEnter={() => handleMouseEnter('accounts')} onMouseLeave={handleMouseLeave}>
+            <li className="relative flex items-center gap-3" onMouseEnter={() => handleMouseEnter('accounts')} onMouseLeave={handleMouseLeave}>
               <button className={buttonClass}>اداره حسابات <span className="text-[8px] mr-1 text-[#bbbbbb]">▼</span></button>
+              <div className="flex items-center gap-2">
+                <button className="bg-transparent border-none cursor-pointer p-[0.4rem] rounded-md transition-all duration-300 relative hover:bg-[rgba(255,107,53,0.2)]">
+                  <span className="text-base block grayscale opacity-70">🛒</span>
+                  <span className="absolute -top-0.5 -right-0.5 bg-[#ff6b35] text-white text-[9px] font-bold py-0.5 px-[5px] rounded-lg min-w-4 text-center">0</span>
+                </button>
+                <button className="bg-transparent border-none cursor-pointer p-[0.4rem] rounded-md transition-all duration-300 hover:bg-[rgba(255,107,53,0.2)]">
+                  <span className="text-base block grayscale opacity-70">🌙</span>
+                </button>
+                <button className="bg-transparent border-none cursor-pointer p-[0.4rem] rounded-md transition-all duration-300 hover:bg-[rgba(255,107,53,0.2)]">
+                  <span className="text-base block grayscale opacity-70">👤</span>
+                </button>
+                <button className="bg-transparent border-none cursor-pointer p-[0.4rem] rounded-md transition-all duration-300 hover:bg-[rgba(255,107,53,0.2)]">
+                  <span className="text-base block grayscale opacity-70">🔍</span>
+                </button>
+              </div>
             </li>
               </ul>
 
@@ -281,28 +291,12 @@ const Navbar = memo(() => {
           </ul>
         </div>
 
-        {/* Logo and Icons Row - Desktop Only */}
-        <div className="hidden lg:flex items-start justify-between w-full gap-6 pb-1">
-          <div className="mr-auto -ml-4">
+        {/* Logo Row - Desktop Only */}
+        <div className="hidden lg:flex items-start justify-start w-full pb-1">
+          <div className="mr-auto">
             <a href="/" className="no-underline flex items-center">
-              <img src="/Storage.png" alt="Storage Logo" className="h-[220px] w-auto -mt-36" />
+              <img src="/storagelogo(1)(1).jpg" alt="Storage Logo" className="h-[220px] w-auto -mt-32" />
             </a>
-          </div>
-          
-          <div className="flex items-center gap-2">
-            <button className="bg-transparent border-none cursor-pointer p-[0.4rem] rounded-md transition-all duration-300 relative hover:bg-[rgba(255,107,53,0.2)]">
-              <span className="text-base block grayscale opacity-70">🛒</span>
-              <span className="absolute -top-0.5 -right-0.5 bg-[#ff6b35] text-white text-[9px] font-bold py-0.5 px-[5px] rounded-lg min-w-4 text-center">0</span>
-            </button>
-            <button className="bg-transparent border-none cursor-pointer p-[0.4rem] rounded-md transition-all duration-300 hover:bg-[rgba(255,107,53,0.2)]">
-              <span className="text-base block grayscale opacity-70">🌙</span>
-            </button>
-            <button className="bg-transparent border-none cursor-pointer p-[0.4rem] rounded-md transition-all duration-300 hover:bg-[rgba(255,107,53,0.2)]">
-              <span className="text-base block grayscale opacity-70">👤</span>
-            </button>
-            <button className="bg-transparent border-none cursor-pointer p-[0.4rem] rounded-md transition-all duration-300 hover:bg-[rgba(255,107,53,0.2)]">
-              <span className="text-base block grayscale opacity-70">🔍</span>
-            </button>
           </div>
         </div>
       </div>

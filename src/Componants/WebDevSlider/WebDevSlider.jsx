@@ -30,6 +30,20 @@ const WebDevSlider = memo(function WebDevSlider() {
       price: 5999,
       oldPrice: 6500,
       saved: 501
+    },
+    {
+      id: 5,
+      title: 'برمجة تطبيقات iOS',
+      image: '/service-2.png',
+      price: 9000
+    },
+    {
+      id: 6,
+      title: 'برمجة متاجر إلكترونية',
+      image: '/service-2.png',
+      price: 7500,
+      oldPrice: 8000,
+      saved: 500
     }
   ];
 
@@ -64,22 +78,6 @@ const WebDevSlider = memo(function WebDevSlider() {
         <h2 className="webdev-slider__title">برمجة الويب</h2>
 
         <div className="webdev-slider__wrapper">
-          <button 
-            className="webdev-slider__nav-btn webdev-slider__nav-btn--prev"
-            onClick={prevSlide}
-            aria-label="السابق"
-          >
-            ‹
-          </button>
-          
-          <button 
-            className="webdev-slider__nav-btn webdev-slider__nav-btn--next"
-            onClick={nextSlide}
-            aria-label="التالي"
-          >
-            ›
-          </button>
-
           <div className="webdev-slider__track" style={{ transform: `translateX(-${index * (100/visible)}%)` }}>
             {services.map((service) => (
               <div key={service.id} className="webdev-slider__card">
@@ -103,6 +101,16 @@ const WebDevSlider = memo(function WebDevSlider() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="webdev-slider__controls">
+          <button className="webdev-slider__arrow" onClick={prevSlide} aria-label="السابق">‹</button>
+          <div className="webdev-slider__dots">
+            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+              <button key={i} className={`webdev-slider__dot ${i===index? 'is-active':''}`} onClick={() => setIndex(i)} aria-label={`شريحة ${i+1}`} />
+            ))}
+          </div>
+          <button className="webdev-slider__arrow" onClick={nextSlide} aria-label="التالي">›</button>
         </div>
       </div>
     </section>

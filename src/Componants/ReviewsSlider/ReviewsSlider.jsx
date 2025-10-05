@@ -26,6 +26,22 @@ const ReviewsSlider = memo(function ReviewsSlider() {
       rating: 5,
       avatar: '👨',
       comment: 'متعتكوون ودا جدا سريع ومصداقية في التعامل جزاكم الله خيرا'
+    },
+    {
+      id: 4,
+      name: 'سارة محمد',
+      date: '07/20/2024',
+      rating: 5,
+      avatar: '👩',
+      comment: 'خدمة رائعة وسريعة جداً، أنصح بالتعامل معهم بشدة'
+    },
+    {
+      id: 5,
+      name: 'Ahmed Ali',
+      date: '06/15/2024',
+      rating: 5,
+      avatar: '👨',
+      comment: 'ممتاز جدا والله يعطيهم العافية على الخدمة المميزة'
     }
   ];
 
@@ -63,22 +79,6 @@ const ReviewsSlider = memo(function ReviewsSlider() {
         </div>
 
         <div className="reviews-slider__wrapper">
-          <button 
-            className="reviews-slider__nav-btn reviews-slider__nav-btn--prev"
-            onClick={prevSlide}
-            aria-label="السابق"
-          >
-            ‹
-          </button>
-          
-          <button 
-            className="reviews-slider__nav-btn reviews-slider__nav-btn--next"
-            onClick={nextSlide}
-            aria-label="التالي"
-          >
-            ›
-          </button>
-
           <div className="reviews-slider__track" style={{ transform: `translateX(-${index * (100/visible)}%)` }}>
             {reviews.map((review) => (
               <div key={review.id} className="reviews-slider__card">
@@ -100,6 +100,16 @@ const ReviewsSlider = memo(function ReviewsSlider() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="reviews-slider__controls">
+          <button className="reviews-slider__arrow" onClick={prevSlide} aria-label="السابق">‹</button>
+          <div className="reviews-slider__dots">
+            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+              <button key={i} className={`reviews-slider__dot ${i===index? 'is-active':''}`} onClick={() => setIndex(i)} aria-label={`شريحة ${i+1}`} />
+            ))}
+          </div>
+          <button className="reviews-slider__arrow" onClick={nextSlide} aria-label="التالي">›</button>
         </div>
       </div>
     </section>

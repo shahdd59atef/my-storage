@@ -38,6 +38,24 @@ const PackagesSlider = memo(function PackagesSlider() {
       icon: '🏪',
       subtitle: 'إنشاء متجر الكتروني احترافي سعودي رقمي',
       price: 2309
+    },
+    {
+      id: 5,
+      title: 'إدارة حساب انستقرام | باقة ذهبية',
+      background: 'linear-gradient(135deg, #c13584 0%, #833ab4 100%)',
+      icon: '📷',
+      subtitle: 'إدارة حسابات انستقرام',
+      price: 1500,
+      oldPrice: 2500,
+      saved: 1000
+    },
+    {
+      id: 6,
+      title: 'باقة السوشيال ميديا الشاملة',
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      icon: '📱',
+      subtitle: 'إدارة جميع حسابات التواصل الاجتماعي',
+      price: 3500
     }
   ];
 
@@ -72,22 +90,6 @@ const PackagesSlider = memo(function PackagesSlider() {
         <h2 className="packages-slider__title">باقات مميزة</h2>
 
         <div className="packages-slider__wrapper">
-          <button 
-            className="packages-slider__nav-btn packages-slider__nav-btn--prev"
-            onClick={prevSlide}
-            aria-label="السابق"
-          >
-            ‹
-          </button>
-          
-          <button 
-            className="packages-slider__nav-btn packages-slider__nav-btn--next"
-            onClick={nextSlide}
-            aria-label="التالي"
-          >
-            ›
-          </button>
-
           <div className="packages-slider__track" style={{ transform: `translateX(-${index * (100/visible)}%)` }}>
             {packages.map((pkg) => (
               <div key={pkg.id} className="packages-slider__card">
@@ -114,6 +116,16 @@ const PackagesSlider = memo(function PackagesSlider() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="packages-slider__controls">
+          <button className="packages-slider__arrow" onClick={prevSlide} aria-label="السابق">‹</button>
+          <div className="packages-slider__dots">
+            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+              <button key={i} className={`packages-slider__dot ${i===index? 'is-active':''}`} onClick={() => setIndex(i)} aria-label={`شريحة ${i+1}`} />
+            ))}
+          </div>
+          <button className="packages-slider__arrow" onClick={nextSlide} aria-label="التالي">›</button>
         </div>
       </div>
     </section>

@@ -9,7 +9,7 @@ const Footer = memo(() => {
           {/* Brand Section */}
           <div className="footer__brand">
             <div className="footer__logo-wrapper">
-              <img src="/Storage.png" alt="Storage Logo" className="footer__logo-img" />
+              <img src="/storagelogo(1)(1).jpg" alt="Storage Logo" className="footer__logo-img" />
             </div>
             <p className="footer__tagline">
               متجر عز احصل على خدمات سوشيال ميديا من تنازل زود حساباتك بالمتابعين و الإعجابات والمشاهدات<br/>
