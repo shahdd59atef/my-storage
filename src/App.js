@@ -2,6 +2,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './Componants/Navbar/Navbar';
+import CustomCursor from './Componants/CustomCursor/CustomCursor';
 import HeroSlider from './Componants/HeroSlider/HeroSlider';
 import FeaturedService from './Componants/FeaturedService/FeaturedService';
 import ServicesSlider from './Componants/ServicesSlider/ServicesSlider';
@@ -9,7 +10,6 @@ import StepsSection from './Componants/StepsSection/StepsSection';
 import Stats from './Componants/Stats/Stats';
 import ProductsSlider from './Componants/ProductsSlider/ProductsSlider';
 import ContactBar from './Componants/ContactBar/ContactBar';
-import SocialServicesSlider from './Componants/SocialServicesSlider/SocialServicesSlider';
 import WhyChooseUs from './Componants/WhyChooseUs/WhyChooseUs';
 import DesignSlider from './Componants/DesignSlider/DesignSlider';
 import WebDevSlider from './Componants/WebDevSlider/WebDevSlider';
@@ -35,11 +35,13 @@ import Footer from './Componants/Footer/Footer';
 import WhatsAppButton from './Componants/WhatsAppButton/WhatsAppButton';
 import WhyChooseUs2 from './Componants/WhyChooseUs2/WhyChooseUs2';
 import AllReviews from './Componants/AllReviews/AllReviews';
+import Cart from './Componants/Cart/Cart';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <CustomCursor />
       <Navbar />
       <main className="App-main">
         <Routes>
@@ -69,6 +71,7 @@ function App() {
           <Route path="/graphic-design" element={<PageGraphicDesign />} />
           <Route path="/web-apps" element={<PageWebApps />} />
           <Route path="/all-reviews" element={<AllReviews />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
@@ -83,30 +86,99 @@ export default App;
 function PageHome(){
   return (
     <>
-      <section className="section" style={{ paddingTop: '1.5rem' }}>
-        <div className="container">
-          <HeroSlider
-            height={420}
-            images={[
-              "https://cdn.salla.sa/form-builder/SglYHaJPTP4WrQALQE3t3VYr9s8GKlfyFD6eAGCr.jpg",
-              "https://cdn.salla.sa/form-builder/Tv6LYLPVGW3IgN7Q476g9Tq6emwi7V0rV5Al9CGh.jpg"
-            ]}
-          />
-        </div>
-      </section>
+      <div style={{ marginTop: '-80px', width: '80%', margin: '-80px auto 0', position: 'relative', zIndex: 1 }}>
+        <HeroSlider
+          height="auto"
+          images={[
+            "https://cdn.salla.sa/form-builder/b74s2qrmkHMOv45TmvCQuQRj8XChuogEwdPzljiw.jpg",
+            "https://cdn.salla.sa/form-builder/ZC7yGMLoPxS0vA4KKKqPscrz8quVH7z3jQTLArwJ.jpg"
+          ]}
+        />
+      </div>
       <section className="section" style={{ background: '#ffffff', padding: 0 }}>
         <div id="services-anchor"></div>
         <ServicesSlider />
       </section>
       {/* Featured service after services */}
-      <FeaturedService />
+      
       <StepsSection />
       <Stats />
+      
+      {/* Image Section after Stats */}
+      <section className="image-section" style={{ 
+        background: '#1F1F2C', 
+        padding: '0.75rem 0', 
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <div style={{ maxWidth: '800px', width: '100%', padding: '0 2rem' }}>
+          <img 
+            src="https://cdn.salla.sa/form-builder/uyQQNl6lYBFkGGQHN62y4fhIMXRc7ETYgc8RCRZF.jpg" 
+            alt="عز"
+            style={{ 
+              width: '100%', 
+              height: 'auto',
+              objectFit: 'cover',
+              borderRadius: '12px',
+              boxShadow: '0 6px 25px rgba(247,236,6,0.3)',
+              border: '2px solid rgba(247,236,6,0.4)'
+            }}
+          />
+        </div>
+      </section>
       <WhyChooseUs2 />
 
       <ProductsSlider />
       <ContactBar />
-      <SocialServicesSlider />
+      
+      {/* Image Section for Graphic Design */}
+      <section className="image-section" style={{ 
+        background: '#1F1F2C', 
+        padding: '0.75rem 0', 
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <div style={{ maxWidth: '800px', width: '100%', padding: '0 2rem' }}>
+          <img 
+            src="https://cdn.salla.sa/form-builder/7F2P1yYlyxF16kG8jLKwe8VBDtK0yqS9ibxXe545.jpg" 
+            alt="التصميم الجرافيكي"
+            style={{ 
+              width: '100%', 
+              height: 'auto',
+              objectFit: 'cover',
+              borderRadius: '12px',
+              boxShadow: '0 6px 25px rgba(247,236,6,0.3)',
+              border: '2px solid rgba(247,236,6,0.4)'
+            }}
+          />
+        </div>
+      </section>
+      
+      <DesignSlider />
+      
+      {/* Image Section under Graphic Design */}
+      <section className="image-section" style={{ 
+        background: '#1F1F2C', 
+        padding: '0.75rem 0', 
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <div style={{ maxWidth: '1000px', width: '100%', padding: '0 2rem' }}>
+          <img 
+            src="https://cdn.salla.sa/form-builder/KrI9lZrYT0s2BQMXzu0biOZouvf5YDVAU3K7HBQi.jpg" 
+            alt="خدمات التصميم الجرافيكي"
+            style={{ 
+              width: '100%', 
+              height: 'auto',
+              objectFit: 'cover'
+            }}
+          />
+        </div>
+      </section>
+      
       <WebDevSlider />
       <PackagesSlider />
       <UsernamesSlider />

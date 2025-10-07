@@ -1,4 +1,6 @@
 import React, { memo, useState } from 'react';
+import { IoIosHeartEmpty } from "react-icons/io";
+import { PiShoppingBag } from "react-icons/pi";
 import './SnapchatPoints.css';
 
 const SnapchatPoints = memo(() => {
@@ -129,25 +131,23 @@ const SnapchatPoints = memo(() => {
             {products.map((product) => (
               <div key={product.id} className="snapchat-points__product-card">
                 <div className="snapchat-points__product-header">
-                  <div className="snapchat-points__product-logo">
-                    <span className="snapchat-points__product-logo-letter">P</span>
-                  </div>
-                  <span className="snapchat-points__snapchat-icon">👻</span>
-                  <div className="snapchat-points__product-line"></div>
-                  <h3 className="snapchat-points__product-subtitle">نقاط سناب</h3>
-                  <span className="snapchat-points__star">⭐</span>
-                  <span className="snapchat-points__badge">{product.badge}</span>
+                  <img
+                    src="https://cdn.salla.sa/DQYwE/M5rnE6RQieGwxLbKyl4EpAHD9Y3OkeObgnKbtYTB.jpg"
+                    alt="خدمة"
+                    className="snapchat-points__product-header-image"
+                  />
                 </div>
                 <div className="snapchat-points__product-content">
                   <h4 className="snapchat-points__product-title">{product.title}</h4>
                   <p className="snapchat-points__product-price">{product.price}</p>
                   <div className="snapchat-points__product-actions">
-                    <button className="snapchat-points__favorite-btn">❤️</button>
-                    <button className="snapchat-points__add-to-cart">
-                      <span className="snapchat-points__cart-icon">🛒</span>
-                      أضف للسلة
+                    <button className="snapchat-points__favorite-btn">
+                      <IoIosHeartEmpty />
                     </button>
-                    <button className="snapchat-points__contact-btn">راسلنا</button>
+                    <button className="snapchat-points__add-to-cart">
+                      <PiShoppingBag />
+                      إضافة للسلة
+                    </button>
                   </div>
                 </div>
               </div>

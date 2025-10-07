@@ -1,5 +1,5 @@
 .contact-bar {
-  background: #ffffff;
+  background: #1f1f2c;
   padding: 1.5rem 0;
   margin: 3rem 0;
 }
@@ -12,9 +12,9 @@
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+  background: #1E2960;
   border-radius: 50px;
-  box-shadow: 0 8px 30px rgba(255, 107, 53, 0.2);
+  box-shadow: 0 8px 30px rgba(30, 41, 96, 0.3);
 }
 
 .contact-bar__social {
@@ -44,7 +44,7 @@
 
 .contact-bar__title {
   text-align: right;
-  color: #ffffff;
+  color: #40A9E9;
   font-size: 1.4rem;
   font-weight: 900;
   margin: 0;
@@ -52,8 +52,8 @@
 }
 
 .contact-bar__button {
-  background: #ffffff;
-  color: #ff6b35;
+  background: #40A9E9;
+  color: #ffffff;
   padding: 0.75rem 1.75rem;
   border-radius: 50px;
   font-weight: 800;
@@ -63,15 +63,15 @@
   gap: 0.5rem;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(64, 169, 233, 0.3);
   white-space: nowrap;
   order: 3;
 }
 
 .contact-bar__button:hover {
-  background: #f9fafb;
+  background: #1E2960;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 20px rgba(30, 41, 96, 0.5);
 }
 
 .contact-bar__button svg {

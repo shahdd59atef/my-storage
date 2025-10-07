@@ -1,4 +1,6 @@
 import React, { memo, useState } from 'react';
+import { IoIosHeartEmpty } from "react-icons/io";
+import { PiShoppingBag } from "react-icons/pi";
 import './SocialMediaServices.css';
 
 const SocialMediaServices = memo(() => {
@@ -179,23 +181,22 @@ const SocialMediaServices = memo(() => {
                 {products.map((product) => (
                   <div key={product.id} className="social-media-services__product-card">
                     <div className="social-media-services__product-header">
-                      <div className="social-media-services__product-logo">
-                        <span className="social-media-services__product-logo-letter">Z</span>
-                      </div>
-                      <span className="social-media-services__category-icon">{product.icon}</span>
-                      <div className="social-media-services__product-line"></div>
-                      <h3 className="social-media-services__product-subtitle">{product.category}</h3>
-                      <span className="social-media-services__star">⭐</span>
-                      <span className="social-media-services__badge">{product.badge}</span>
+                      <img
+                        src="https://cdn.salla.sa/DQYwE/60e65ac0-11ff-4c02-a51d-1df33680522d-500x375.10584250635-jfWA4k2ZTz1KIraipWtBoxrfuWrIO1Npoq146dPR.jpg"
+                        alt="خدمة"
+                        className="social-media-services__header-image"
+                      />
                     </div>
                     <div className="social-media-services__product-content">
                       <h4 className="social-media-services__product-title">{product.title}</h4>
                       <p className="social-media-services__product-price">{product.price}</p>
                       <div className="social-media-services__product-actions">
-                        <button className="social-media-services__favorite-btn">❤️</button>
+                        <button className="social-media-services__favorite-btn">
+                          <IoIosHeartEmpty />
+                        </button>
                         <button className="social-media-services__add-to-cart">
-                          <span className="social-media-services__cart-icon">🛒</span>
-                          أضف للسلة
+                          <PiShoppingBag />
+                          إضافة للسلة
                         </button>
                         <button className="social-media-services__contact-btn">راسلنا</button>
                       </div>

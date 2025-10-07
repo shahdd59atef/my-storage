@@ -1,6 +1,6 @@
 .steps-section {
   padding: 4rem 0;
-  background: #ffffff;
+  background: #1F1F2C;
 }
 
 .steps-container {
@@ -13,7 +13,7 @@
   text-align: center;
   font-size: 2.5rem;
   font-weight: 900;
-  color: #ff6b35;
+  color: #F7EC06;
   margin-bottom: 0.5rem;
 }
 
@@ -38,7 +38,7 @@
   flex: 1;
   min-width: 280px;
   max-width: 350px;
-  background: #ffffff;
+  background: #1F1F2C;
   border: 2px solid #f0f0f0;
   border-radius: 20px;
   padding: 2.5rem 2rem;
@@ -51,8 +51,8 @@
 
 .step-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(255, 107, 53, 0.2);
-  border-color: #ff6b35;
+  box-shadow: 0 15px 40px rgba(247, 236, 6, 0.2);
+  border-color: #F7EC06;
 }
 
 /* Icon Container */
@@ -64,7 +64,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #ff6b35 0%, #ffa500 100%);
+  background: linear-gradient(135deg, #F7EC06 0%, #F7EC06 100%);
   border-radius: 50%;
   animation: pulse 2s ease-in-out infinite;
 }
@@ -72,11 +72,11 @@
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4);
+    box-shadow: 0 0 0 0 rgba(247, 236, 6, 0.4);
   }
   50% {
     transform: scale(1.05);
-    box-shadow: 0 0 0 20px rgba(255, 107, 53, 0);
+    box-shadow: 0 0 0 20px rgba(247, 236, 6, 0);
   }
 }
 
@@ -102,15 +102,15 @@
   right: -10px;
   width: 35px;
   height: 35px;
-  background: #ffffff;
-  border: 3px solid #ff6b35;
+  background: #1F1F2C;
+  border: 3px solid #F7EC06;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
   font-weight: 900;
-  color: #ff6b35;
+  color: #F7EC06;
   z-index: 3;
   animation: rotate 4s linear infinite;
 }
@@ -151,7 +151,7 @@
   position: absolute;
   width: 8px;
   height: 8px;
-  background: #ff6b35;
+  background: #F7EC06;
   border-radius: 50%;
   opacity: 0.3;
 }
@@ -188,7 +188,7 @@
 /* Arrow Between Cards */
 .step-arrow {
   flex-shrink: 0;
-  color: #ff6b35;
+  color: #F7EC06;
   font-size: 2rem;
   animation: slide 1.5s ease-in-out infinite;
 }
@@ -205,7 +205,7 @@
 .arrow-icon {
   width: 40px;
   height: 40px;
-  filter: drop-shadow(0 2px 8px rgba(255, 107, 53, 0.3));
+  filter: drop-shadow(0 2px 8px rgba(247, 236, 6, 0.3));
 }
 
 /* Responsive */

@@ -1,10 +1,21 @@
 import React, { memo, useState } from 'react';
+import { IoIosHeartEmpty } from "react-icons/io";
+import { PiShoppingBag } from "react-icons/pi";
 import './AdsCampaigns.css';
 
 const AdsCampaigns = memo(() => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [selectedSort, setSelectedSort] = useState('ترتيب مقترحاتنا');
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // يمكن تغييرها حسب حالة تسجيل الدخول
+  
+  const handleFavoriteClick = () => {
+    if (!isLoggedIn) {
+      alert('يرجى تسجيل الدخول للاستفادة من هذه الميزة');
+      return;
+    }
+    // منطق إضافة للمفضلة هنا
+  };
   
   const products = [
     {
@@ -156,10 +167,12 @@ const AdsCampaigns = memo(() => {
                   <h4 className="ads-campaigns__product-title">{product.title}</h4>
                   <p className="ads-campaigns__product-price">{product.price}</p>
                   <div className="ads-campaigns__product-actions">
-                    <button className="ads-campaigns__favorite-btn">❤️</button>
+                    <button className="ads-campaigns__favorite-btn" onClick={handleFavoriteClick}>
+                      <IoIosHeartEmpty />
+                    </button>
                     <button className="ads-campaigns__add-to-cart">
-                      <span className="ads-campaigns__cart-icon">🛒</span>
-                      أضف للسلة
+                      <PiShoppingBag />
+                      إضافة للسلة
                     </button>
                     <button className="ads-campaigns__contact-btn">راسلنا</button>
                   </div>
@@ -235,6 +248,7 @@ const AdsCampaigns = memo(() => {
 AdsCampaigns.displayName = 'AdsCampaigns';
 
 export default AdsCampaigns;
+
 
 
 

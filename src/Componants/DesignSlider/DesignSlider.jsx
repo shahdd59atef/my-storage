@@ -1,51 +1,43 @@
 import React, { memo, useState, useEffect } from 'react';
+import { HiArrowSmallLeft } from "react-icons/hi2";
+import { HiArrowSmallRight } from "react-icons/hi2";
+import { CiHeart } from "react-icons/ci";
+import { TbShoppingBag } from "react-icons/tb";
 import './DesignSlider.css';
 
 const DesignSlider = memo(function DesignSlider() {
   const designs = [
     {
       id: 1,
-      title: 'تصميم الشعارات والهوية البصرية',
-      subtitle: 'تصميم شعار بجودة بصريّة ومتميزك بها ساعاتها',
-      image: '/service-3.png',
-      price: 650,
-      oldPrice: 1200,
-      saved: 550
+      title: 'تصميم هوية بصرية شاملة',
+      subtitle: 'لوقو وهوية بصرية',
+      price: 800,
+      description: 'تصميم هوية بصرية شاملة',
+      highlight: '5 أيام عمل'
     },
     {
       id: 2,
-      title: 'تصميم بوسترات إعلانية',
-      image: '/service-3.png',
-      price: 50
+      title: 'تصاميم سوشيال ميديا',
+      subtitle: 'تصاميم السوشيال ميديا',
+      price: 300,
+      description: 'تصاميم السوشيال ميديا',
+      highlight: '3 أيام عمل'
     },
     {
       id: 3,
-      title: 'تصميم لوقو',
-      subtitle: 'تصميم لوقو احترافي ريشيك واتـ ـــي',
-      image: '/service-3.png',
-      price: 300
+      title: 'بوسترات إعلانية',
+      subtitle: 'تصاميم المطبوعات',
+      price: 150,
+      description: 'بوسترات إعلانية احترافية',
+      highlight: 'يومين عمل'
     },
     {
       id: 4,
-      title: 'تصميم سوشيال ميديا',
-      subtitle: 'خدمات تصميم بصمية إبداعا في كل دقيقة الأجل',
-      image: '/service-3.png',
-      price: 25
-    },
-    {
-      id: 5,
-      title: 'تصميم بروشورات ومطبوعات',
-      subtitle: 'تصميم بروشورات احترافية لنشاطك التجاري',
-      image: '/service-3.png',
-      price: 400,
-      oldPrice: 600,
-      saved: 200
-    },
-    {
-      id: 6,
-      title: 'تصميم بطاقات أعمال',
-      image: '/service-3.png',
-      price: 150
+      title: 'تصاميم متجر إلكتروني',
+      subtitle: 'تصاميم التجارة الإلكترونية',
+      price: 600,
+      description: 'تصاميم متجر إلكتروني',
+      highlight: 'اسبوع عمل'
     }
   ];
 
@@ -83,24 +75,27 @@ const DesignSlider = memo(function DesignSlider() {
           <div className="design-slider__track" style={{ transform: `translateX(-${index * (100/visible)}%)` }}>
             {designs.map((design) => (
               <div key={design.id} className="design-slider__card">
-                <div className="design-slider__image">
-                  <img src={design.image} alt={design.title} />
+                <div className="design-slider__header">
+                  <img
+                    src="https://cdn.salla.sa/DQYwE/60e65ac0-11ff-4c02-a51d-1df33680522d-500x375.10584250635-jfWA4k2ZTz1KIraipWtBoxrfuWrIO1Npoq146dPR.jpg"
+                    alt="خدمة"
+                    className="design-slider__header-image"
+                  />
                 </div>
                 <div className="design-slider__content">
-                  <h4 className="design-slider__name">{design.title}</h4>
-                  {design.subtitle && (
-                    <p className="design-slider__subtitle">{design.subtitle}</p>
-                  )}
+                  <h4 className="design-slider__description">{design.subtitle}</h4>
                   <div className="design-slider__pricing">
-                    <div className="design-slider__price-main">
-                      <span className="design-slider__price">﷼ {design.price}</span>
-                      {design.oldPrice && (
-                        <span className="design-slider__old-price">﷼ {design.oldPrice}</span>
-                      )}
-                    </div>
-                    {design.saved && (
-                      <span className="design-slider__saved">وفر {design.saved}.00 ر.س</span>
-                    )}
+                    <span className="design-slider__price">{design.price}</span>
+                    <span className="design-slider__price-unit">إلى</span>
+                  </div>
+                  <div className="design-slider__actions">
+                    <button className="design-slider__favorite-btn">
+                      <CiHeart />
+                    </button>
+                    <button className="design-slider__add-to-cart">
+                      <TbShoppingBag />
+                      إضافة للسلة
+                    </button>
                   </div>
                 </div>
               </div>
@@ -109,13 +104,17 @@ const DesignSlider = memo(function DesignSlider() {
         </div>
 
         <div className="design-slider__controls">
-          <button className="design-slider__arrow" onClick={prevSlide} aria-label="السابق">‹</button>
+          <button className="design-slider__arrow" onClick={prevSlide} aria-label="السابق">
+            <HiArrowSmallRight />
+          </button>
           <div className="design-slider__dots">
             {Array.from({ length: maxIndex + 1 }).map((_, i) => (
               <button key={i} className={`design-slider__dot ${i===index? 'is-active':''}`} onClick={() => setIndex(i)} aria-label={`شريحة ${i+1}`} />
             ))}
           </div>
-          <button className="design-slider__arrow" onClick={nextSlide} aria-label="التالي">›</button>
+          <button className="design-slider__arrow" onClick={nextSlide} aria-label="التالي">
+            <HiArrowSmallLeft />
+          </button>
         </div>
       </div>
     </section>

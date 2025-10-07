@@ -143,25 +143,18 @@ const Usernames = memo(() => {
             {products.map((product) => (
               <div key={product.id} className="usernames__product-card">
                 <div className="usernames__product-header">
-                  <div className="usernames__product-logo">
-                    <span className="usernames__product-logo-letter">Z</span>
-                  </div>
-                  <span className="usernames__category-icon">{product.icon}</span>
-                  <div className="usernames__product-line"></div>
-                  <h3 className="usernames__product-subtitle">{product.category}</h3>
-                  <span className="usernames__star">⭐</span>
-                  <span className="usernames__badge">{product.badge}</span>
+                  <img
+                    src="https://cdn.salla.sa/DQYwE/M5rnE6RQieGwxLbKyl4EpAHD9Y3OkeObgnKbtYTB.jpg"
+                    alt="خدمة"
+                    className="usernames__product-header-image"
+                  />
                 </div>
                 <div className="usernames__product-content">
                   <h4 className="usernames__product-title">{product.title}</h4>
                   <p className="usernames__product-price">{product.price}</p>
                   <div className="usernames__product-actions">
                     <button className="usernames__favorite-btn">❤️</button>
-                    <button className="usernames__add-to-cart">
-                      <span className="usernames__cart-icon">🛒</span>
-                      أضف للسلة
-                    </button>
-                    <button className="usernames__contact-btn">راسلنا</button>
+                    <button className="usernames__add-to-cart">🛒</button>
                   </div>
                 </div>
               </div>
@@ -235,6 +228,7 @@ const Usernames = memo(() => {
 Usernames.displayName = 'Usernames';
 
 export default Usernames;
+
 
 
 

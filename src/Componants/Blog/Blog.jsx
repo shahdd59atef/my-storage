@@ -7,15 +7,7 @@ const Blog = memo(() => {
   const navigate = useNavigate();
 
   const blogPosts = [
-    {
-      id: 1,
-      title: 'توثيق حسابات تويتر',
-      description: 'المصداقية وهي واحدة من أهم منصات التواصل الاجتماعي في العالم، حيث يستخدمها من ملايين المستخدمين من المشاهير، السياسيين، الصحفيين، والشركات.',
-      buttonText: 'اقرأ المزيد',
-      bgColor: '#1DA1F2',
-      icon: '🐦',
-      platform: 'twitter'
-    },
+    // Removed the old post titled "توثيق حسابات تويتر"
     {
       id: 2,
       title: 'متجر بيع بوزارت للانستقرام',
@@ -131,16 +123,12 @@ const Blog = memo(() => {
       <div className="blog__grid">
         {blogPosts.slice(0, visiblePosts).map((post) => (
           <div key={post.id} className="blog__card">
-            <div 
-              className="blog__card-image"
-              style={{ background: post.bgColor }}
-            >
-              <div className="blog__card-logo">
-                <span className="blog__card-logo-letter">e</span>
-              </div>
-              <div className="blog__card-icon">{post.icon}</div>
-              <div className="blog__card-line"></div>
-              <h3 className="blog__card-platform-title">{post.title.includes('توثيق') ? 'توثيق حسابات' : 'بوزارت للبيع'}</h3>
+            <div className="blog__card-header">
+              <img
+                src="https://cdn.salla.sa/DQYwE/60e65ac0-11ff-4c02-a51d-1df33680522d-500x375.10584250635-jfWA4k2ZTz1KIraipWtBoxrfuWrIO1Npoq146dPR.jpg"
+                alt="خدمة"
+                className="blog__card-header-image"
+              />
             </div>
             <div className="blog__card-content">
               <h4 className="blog__card-title">{post.title}</h4>

@@ -9,11 +9,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #1f1f2c;
 }
 
-/* Orange color for all headings */
+/* White color for all headings */
 h1, h2, h3, h4, h5, h6 {
-  color: #ff6b35 !important;
+  color: #ffffff !important;
 }
 
 code {

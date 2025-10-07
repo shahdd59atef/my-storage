@@ -1,4 +1,8 @@
 import React, { memo, useState, useEffect } from 'react';
+import { HiArrowSmallLeft } from "react-icons/hi2";
+import { HiArrowSmallRight } from "react-icons/hi2";
+import { CiHeart } from "react-icons/ci";
+import { TbShoppingBag } from "react-icons/tb";
 import './WebDevSlider.css';
 
 const WebDevSlider = memo(function WebDevSlider() {
@@ -81,21 +85,27 @@ const WebDevSlider = memo(function WebDevSlider() {
           <div className="webdev-slider__track" style={{ transform: `translateX(-${index * (100/visible)}%)` }}>
             {services.map((service) => (
               <div key={service.id} className="webdev-slider__card">
-                <div className="webdev-slider__image">
-                  <img src={service.image} alt={service.title} />
+                <div className="webdev-slider__header">
+                  <img
+                    src="https://cdn.salla.sa/DQYwE/60e65ac0-11ff-4c02-a51d-1df33680522d-500x375.10584250635-jfWA4k2ZTz1KIraipWtBoxrfuWrIO1Npoq146dPR.jpg"
+                    alt="خدمة"
+                    className="webdev-slider__header-image"
+                  />
                 </div>
                 <div className="webdev-slider__content">
-                  <h4 className="webdev-slider__name">{service.title}</h4>
+                  <h4 className="webdev-slider__description">برمجة مواقع الويب</h4>
                   <div className="webdev-slider__pricing">
-                    <div className="webdev-slider__price-main">
-                      <span className="webdev-slider__price">﷼ {service.price}</span>
-                      {service.oldPrice && (
-                        <span className="webdev-slider__old-price">﷼ {service.oldPrice}</span>
-                      )}
-                    </div>
-                    {service.saved && (
-                      <span className="webdev-slider__saved">وفر {service.saved}.00 ر.س</span>
-                    )}
+                    <span className="webdev-slider__price">{service.price}</span>
+                    <span className="webdev-slider__price-unit">إلى</span>
+                  </div>
+                  <div className="webdev-slider__actions">
+                    <button className="webdev-slider__favorite-btn">
+                      <CiHeart />
+                    </button>
+                    <button className="webdev-slider__add-to-cart">
+                      <TbShoppingBag />
+                      إضافة للسلة
+                    </button>
                   </div>
                 </div>
               </div>
@@ -104,13 +114,17 @@ const WebDevSlider = memo(function WebDevSlider() {
         </div>
 
         <div className="webdev-slider__controls">
-          <button className="webdev-slider__arrow" onClick={prevSlide} aria-label="السابق">‹</button>
+          <button className="webdev-slider__arrow" onClick={prevSlide} aria-label="السابق">
+            <HiArrowSmallRight />
+          </button>
           <div className="webdev-slider__dots">
             {Array.from({ length: maxIndex + 1 }).map((_, i) => (
               <button key={i} className={`webdev-slider__dot ${i===index? 'is-active':''}`} onClick={() => setIndex(i)} aria-label={`شريحة ${i+1}`} />
             ))}
           </div>
-          <button className="webdev-slider__arrow" onClick={nextSlide} aria-label="التالي">›</button>
+          <button className="webdev-slider__arrow" onClick={nextSlide} aria-label="التالي">
+            <HiArrowSmallLeft />
+          </button>
         </div>
       </div>
     </section>

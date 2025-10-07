@@ -1,4 +1,4 @@
-.featured { background: #ffffff; padding: 2rem 0; }
+.featured { background: #1f1f2c; padding: 2rem 0; }
 .featured__container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
 .featured__title { text-align: center; font-size: 2rem; font-weight: 900; color: #ff6b35; }
 .featured__divider { width: 70px; height: 4px; margin: .5rem auto 1.5rem; background: linear-gradient(90deg, transparent, #ff6b35, transparent); background-size: 200% 100%; animation: divider-move 1.8s linear infinite; border-radius: 8px; position: relative; }
@@ -235,6 +235,19 @@
     padding: 0.7rem 0.8rem;
     font-size: 12px;
   }
+}
+
+/* Hide the standalone purchase button as requested */
+.featured__cta { display: none !important; }
+
+/* Hide only the banner textual content (keep banner and phone graphic) */
+.featured__banner-content { display: none !important; }
+
+/* Visually hide 'مشاهدات سناب 100' text without affecting layout */
+.featured__name,
+.featured__cart-title {
+  color: transparent !important;
+  text-shadow: none !important;
 }
 
 

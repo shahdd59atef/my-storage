@@ -1,10 +1,21 @@
 import React, { memo, useState } from 'react';
+import { IoIosHeartEmpty } from "react-icons/io";
+import { PiShoppingBag } from "react-icons/pi";
 import './Verification.css';
 
 const Verification = memo(() => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [selectedSort, setSelectedSort] = useState('ترتيب مقترحاتنا');
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // يمكن تغييرها حسب حالة تسجيل الدخول
+  
+  const handleFavoriteClick = () => {
+    if (!isLoggedIn) {
+      alert('يرجى تسجيل الدخول للاستفادة من هذه الميزة');
+      return;
+    }
+    // منطق إضافة للمفضلة هنا
+  };
   
   const products = [
     {
@@ -156,10 +167,12 @@ const Verification = memo(() => {
                   <h4 className="verification__product-title">{product.title}</h4>
                   <p className="verification__product-price">{product.price}</p>
                   <div className="verification__product-actions">
-                    <button className="verification__favorite-btn">❤️</button>
+                    <button className="verification__favorite-btn" onClick={handleFavoriteClick}>
+                      <IoIosHeartEmpty />
+                    </button>
                     <button className="verification__add-to-cart">
-                      <span className="verification__cart-icon">🛒</span>
-                      أضف للسلة
+                      <PiShoppingBag />
+                      إضافة للسلة
                     </button>
                     <button className="verification__contact-btn">راسلنا</button>
                   </div>
@@ -235,6 +248,7 @@ const Verification = memo(() => {
 Verification.displayName = 'Verification';
 
 export default Verification;
+
 
 
 

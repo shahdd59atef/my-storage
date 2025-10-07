@@ -1,6 +1,6 @@
 /* SnapchatFollowers Styles */
 .snapchat-followers {
-  background-color: #f8f9fa;
+  background-color: #1F1F2C;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
 }
@@ -45,8 +45,8 @@
 }
 
 .snapchat-followers__sort-btn:hover {
-  color: #ff6b35;
-  background: rgba(255, 107, 53, 0.1);
+  color: #F7EC06;
+  background: rgba(247, 236, 6, 0.1);
 }
 
 .snapchat-followers__dropdown-arrow {
@@ -58,7 +58,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background: #ffffff;
+  background: #1F1F2C;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -100,14 +100,14 @@
 }
 
 .snapchat-followers__dropdown-item:hover {
-  background: rgba(255, 107, 53, 0.1);
-  color: #ff6b35;
+  background: rgba(247, 236, 6, 0.1);
+  color: #F7EC06;
   padding-right: 1.5rem;
 }
 
 .snapchat-followers__dropdown-item.selected {
-  background: rgba(255, 107, 53, 0.15);
-  color: #ff6b35;
+  background: rgba(247, 236, 6, 0.15);
+  color: #F7EC06;
   font-weight: 600;
 }
 
@@ -117,7 +117,7 @@
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #ff6b35;
+  color: #F7EC06;
   font-weight: bold;
 }
 
@@ -134,7 +134,7 @@
 }
 
 .snapchat-followers__counter-text:hover {
-  color: #ff6b35;
+  color: #F7EC06;
 }
 
 .snapchat-followers__products {
@@ -147,27 +147,33 @@
 
 /* Product Card */
 .snapchat-followers__product-card {
-  background: #ffffff;
+  background: #343444 !important;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.1);
+  box-shadow: 0 8px 25px rgba(247, 236, 6, 0.1);
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(247, 236, 6, 0.1);
 }
 
 .snapchat-followers__product-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 35px rgba(255, 107, 53, 0.2);
+  box-shadow: 0 12px 35px rgba(247, 236, 6, 0.2);
 }
 
 .snapchat-followers__product-header {
-  background: linear-gradient(135deg, #ff6b35, #ffa500);
-  padding: 2rem 1.5rem;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 160px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.snapchat-followers__product-header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .snapchat-followers__product-logo {
@@ -240,7 +246,7 @@
 }
 
 .snapchat-followers__product-price {
-  color: #ff6b35;
+  color: #F7EC06;
   font-size: 1.3rem;
   font-weight: bold;
   margin: 0 0 1.5rem 0;
@@ -264,14 +270,14 @@
 }
 
 .snapchat-followers__favorite-btn:hover {
-  background: rgba(255, 107, 53, 0.1);
+  background: rgba(247, 236, 6, 0.1);
   transform: scale(1.1);
 }
 
 .snapchat-followers__add-to-cart {
-  background: linear-gradient(90deg, #ff6b35, #ffa500);
+  background: transparent;
   color: #ffffff;
-  border: none;
+  border: 2px solid #F7EC06;
   padding: 0.6rem 1.2rem;
   border-radius: 20px;
   font-weight: bold;
@@ -282,12 +288,13 @@
   gap: 0.4rem;
   flex: 1;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  box-shadow: 0 4px 15px rgba(247, 236, 6, 0.3);
   font-size: 0.9rem;
 }
 
 .snapchat-followers__add-to-cart:hover {
-  background: linear-gradient(90deg, #ffa500, #ff6b35);
+  background: #F7EC06;
+  color: #1F1F2C;
   transform: translateY(-2px);
 }
 
@@ -316,9 +323,9 @@
 .snapchat-followers__reviews {
   margin-top: 4rem;
   padding: 3rem 0;
-  background: #ffffff;
+  background: #1F1F2C !important;
   border-radius: 20px;
-  border: 1px solid rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(247, 236, 6, 0.1);
 }
 
 .snapchat-followers__reviews-header {
@@ -327,7 +334,7 @@
 }
 
 .snapchat-followers__reviews-title {
-  color: #ff6b35;
+  color: #F7EC06;
   font-size: 2rem;
   font-weight: bold;
   margin: 0;
@@ -344,7 +351,7 @@
   transform: translateY(-50%);
   width: 4px;
   height: 30px;
-  background: #ff6b35;
+  background: #F7EC06;
   border-radius: 2px;
 }
 
@@ -357,12 +364,11 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #ff6b35;
+  background: none;
   border: none;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  color: #ffffff;
+  color: #F7EC06;
   font-size: 1.2rem;
   font-weight: bold;
   cursor: pointer;
@@ -371,7 +377,7 @@
 }
 
 .snapchat-followers__slider-btn:hover {
-  background: #ff8555;
+  color: #ffffff;
 }
 
 .snapchat-followers__slider-btn--prev {
@@ -401,13 +407,13 @@
 }
 
 .snapchat-followers__review-card {
-  background: #ffffff;
+  background: #343444 !important;
   border-radius: 15px;
   padding: 1.5rem;
   transition: all 0.3s ease;
   position: relative;
-  border: 1px solid rgba(255, 107, 53, 0.1);
-  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(247, 236, 6, 0.1);
+  box-shadow: 0 4px 15px rgba(247, 236, 6, 0.1);
   min-width: 300px;
   flex-shrink: 0;
 }
@@ -439,17 +445,17 @@
 .snapchat-followers__reviewer-avatar {
   width: 50px;
   height: 50px;
-  background: rgba(255, 107, 53, 0.1);
+  background: rgba(247, 236, 6, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgba(255, 107, 53, 0.2);
+  border: 2px solid rgba(247, 236, 6, 0.2);
 }
 
 .snapchat-followers__avatar-icon {
   font-size: 1.5rem;
-  color: #ff6b35;
+  color: #F7EC06;
 }
 
 .snapchat-followers__reviewer-info {
@@ -478,7 +484,7 @@
   top: -10px;
   left: 10px;
   font-size: 3rem;
-  color: #ff6b35;
+  color: #F7EC06;
   font-family: serif;
   line-height: 1;
   opacity: 0.3;
@@ -489,7 +495,7 @@
   bottom: -20px;
   left: 10px;
   font-size: 3rem;
-  color: #ff6b35;
+  color: #F7EC06;
   font-family: serif;
   line-height: 1;
   opacity: 0.3;
@@ -535,7 +541,7 @@
     width: 100%;
     justify-content: center;
     padding: 0.5rem;
-    background: rgba(255, 107, 53, 0.05);
+    background: rgba(247, 236, 6, 0.05);
     border-radius: 8px;
   }
 

@@ -1,4 +1,6 @@
 import React, { memo, useState } from 'react';
+import { IoIosHeartEmpty } from "react-icons/io";
+import { PiShoppingBag } from "react-icons/pi";
 import './SnapchatFollowers.css';
 
 const SnapchatFollowers = memo(() => {
@@ -136,25 +138,23 @@ const SnapchatFollowers = memo(() => {
             {products.map((product) => (
               <div key={product.id} className="snapchat-followers__product-card">
                 <div className="snapchat-followers__product-header">
-                  <div className="snapchat-followers__product-logo">
-                    <span className="snapchat-followers__product-logo-letter">F</span>
-                  </div>
-                  <span className="snapchat-followers__snapchat-icon">👻</span>
-                  <div className="snapchat-followers__product-line"></div>
-                  <h3 className="snapchat-followers__product-subtitle">متابعين سناب</h3>
-                  <span className="snapchat-followers__star">⭐</span>
-                  <span className="snapchat-followers__badge">{product.badge}</span>
+                  <img
+                    src="https://cdn.salla.sa/DQYwE/M5rnE6RQieGwxLbKyl4EpAHD9Y3OkeObgnKbtYTB.jpg"
+                    alt="خدمة"
+                    className="snapchat-followers__product-header-image"
+                  />
                 </div>
                 <div className="snapchat-followers__product-content">
                   <h4 className="snapchat-followers__product-title">{product.title}</h4>
                   <p className="snapchat-followers__product-price">{product.price}</p>
                   <div className="snapchat-followers__product-actions">
-                    <button className="snapchat-followers__favorite-btn">❤️</button>
-                    <button className="snapchat-followers__add-to-cart">
-                      <span className="snapchat-followers__cart-icon">🛒</span>
-                      أضف للسلة
+                    <button className="snapchat-followers__favorite-btn">
+                      <IoIosHeartEmpty />
                     </button>
-                    <button className="snapchat-followers__contact-btn">راسلنا</button>
+                    <button className="snapchat-followers__add-to-cart">
+                      <PiShoppingBag />
+                      إضافة للسلة
+                    </button>
                   </div>
                 </div>
               </div>
@@ -228,6 +228,7 @@ const SnapchatFollowers = memo(() => {
 SnapchatFollowers.displayName = 'SnapchatFollowers';
 
 export default SnapchatFollowers;
+
 
 
 

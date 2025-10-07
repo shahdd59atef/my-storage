@@ -1,4 +1,8 @@
 import React, { memo } from 'react';
+import { MdWhatsapp, MdOutlineMailOutline } from "react-icons/md";
+import { FaTelegramPlane } from "react-icons/fa";
+import { BsTelephone } from "react-icons/bs";
+import { FaMobileScreen } from "react-icons/fa6";
 import './Footer.css';
 
 const Footer = memo(() => {
@@ -9,7 +13,7 @@ const Footer = memo(() => {
           {/* Brand Section */}
           <div className="footer__brand">
             <div className="footer__logo-wrapper">
-              <img src="/storagelogo(1)(1).jpg" alt="Storage Logo" className="footer__logo-img" />
+              <img src="https://cdn.salla.sa/cdn-cgi/image/fit=scale-down,width=400,height=400,onerror=redirect,format=auto/DQYwE/wyWnbCpitH0YrIqGM6cmhukxXFJX8zWn8RnN3DLW.png" alt="Storage Logo" className="footer__logo-img" />
             </div>
             <p className="footer__tagline">
               متجر عز احصل على خدمات سوشيال ميديا من تنازل زود حساباتك بالمتابعين و الإعجابات والمشاهدات<br/>
@@ -36,19 +40,33 @@ const Footer = memo(() => {
                 <h4 className="footer__title">تواصل معنا</h4>
                 <ul className="footer__list footer__contact-grid">
                   <li className="footer__contact-item">
-                    <span className="footer__icon">📞</span>
+                    <span className="footer__icon">
+                      <BsTelephone />
+                    </span>
                     <span>0561950225</span>
                   </li>
                   <li className="footer__contact-item">
-                    <span className="footer__icon">📱</span>
+                    <span className="footer__icon">
+                      <MdWhatsapp />
+                    </span>
                     <span>+966561950225</span>
                   </li>
                   <li className="footer__contact-item">
-                    <span className="footer__icon">📱</span>
+                    <span className="footer__icon">
+                      <FaTelegramPlane />
+                    </span>
                     <span>+966561950225</span>
                   </li>
                   <li className="footer__contact-item">
-                    <span className="footer__icon">✉️</span>
+                    <span className="footer__icon">
+                      <FaMobileScreen />
+                    </span>
+                    <span>+966561950225</span>
+                  </li>
+                  <li className="footer__contact-item">
+                    <span className="footer__icon">
+                      <MdOutlineMailOutline />
+                    </span>
                     <a href="mailto:info@ezzmar.com">info@ezzmar.com</a>
                   </li>
                   <li className="footer__contact-item">

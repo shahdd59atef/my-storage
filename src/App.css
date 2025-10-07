@@ -1,7 +1,7 @@
 /* App Base Styles */
 .App {
   min-height: 100vh;
-  background: #ffffff;
+  background: #1F1F2C;
 }
 
 .App-main {
@@ -79,11 +79,11 @@
 /* Sections */
 .section {
   padding: 5rem 0;
-  background: white;
+  background: #1F1F2C;
 }
 
 .section:nth-child(even) {
-  background: #f8f9fa;
+  background: #1F1F2C;
 }
 
 .container {
@@ -97,7 +97,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #333;
+  color: #ffffff;
 }
 
 .section h2::after {
@@ -106,7 +106,7 @@
   width: 70px;
   height: 4px;
   margin: .5rem auto 0;
-  background: linear-gradient(90deg, transparent, #ff6b35, transparent);
+  background: linear-gradient(90deg, transparent, #F7EC06, transparent);
   background-size: 200% 100%;
   animation: divider-move 1.8s linear infinite;
   border-radius: 4px;
@@ -119,7 +119,7 @@
 
 .section p {
   font-size: 1.1rem;
-  color: #666;
+  color: #e0e0e0;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -173,30 +173,30 @@
 
 /* Features Section */
 .feature-card {
-  background: #ffffff;
-  border: 2px solid #f3f4f6;
+  background: #1F1F2C;
+  border: 2px solid #F7EC06;
   border-radius: 16px;
   padding: 2rem 1.5rem;
   transition: all 0.3s ease;
 }
 
 .feature-card:hover {
-  border-color: #ff6b35;
-  box-shadow: 0 10px 40px rgba(255, 107, 53, 0.15);
+  border-color: #F7EC06;
+  box-shadow: 0 10px 40px rgba(247, 236, 6, 0.15);
   transform: translateY(-5px);
 }
 
 .feature-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #ff6b35 0%, #ff8c5a 100%);
+  background: linear-gradient(135deg, #F7EC06 0%, #F7EC06 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   transition: transform 0.6s ease;
-  box-shadow: 0 8px 20px rgba(255, 107, 53, 0.2);
+  box-shadow: 0 8px 20px rgba(247, 236, 6, 0.2);
 }
 
 .feature-icon span {
@@ -229,11 +229,12 @@
 
 /* Product Cards */
 .product-card {
-  background: #ffffff;
+  background: #1F1F2C;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,.08);
+  box-shadow: 0 4px 20px rgba(247,236,6,.2);
   transition: all 0.3s ease;
   overflow: hidden;
+  border: 1px solid #F7EC06;
 }
 
 .product-card:hover {

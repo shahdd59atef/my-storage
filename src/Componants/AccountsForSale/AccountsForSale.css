@@ -1,6 +1,6 @@
 /* AccountsForSale Styles */
 .accounts-for-sale {
-  background-color: #f8f9fa;
+  background-color: #1f1f2c;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
 }
@@ -45,8 +45,8 @@
 }
 
 .accounts-for-sale__sort-btn:hover {
-  color: #ff6b35;
-  background: rgba(255, 107, 53, 0.1);
+  color: #F7EC06;
+  background: rgba(247, 236, 6, 0.1);
 }
 
 .accounts-for-sale__dropdown-arrow {
@@ -58,7 +58,7 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background: #ffffff;
+  background: #1F1F2C;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -147,7 +147,7 @@
 
 /* Product Card */
 .accounts-for-sale__product-card {
-  background: #ffffff;
+  background: #1F1F2C;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 8px 25px rgba(255, 107, 53, 0.1);
@@ -316,7 +316,7 @@
 .accounts-for-sale__reviews {
   margin-top: 4rem;
   padding: 3rem 0;
-  background: #ffffff;
+  background: #1F1F2C;
   border-radius: 20px;
   border: 1px solid rgba(255, 107, 53, 0.1);
 }
@@ -401,7 +401,7 @@
 }
 
 .accounts-for-sale__review-card {
-  background: #ffffff;
+  background: #1F1F2C;
   border-radius: 15px;
   padding: 1.5rem;
   transition: all 0.3s ease;

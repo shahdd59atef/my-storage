@@ -1,4 +1,8 @@
 import React, { memo, useState, useEffect } from 'react';
+import { HiArrowSmallLeft } from "react-icons/hi2";
+import { HiArrowSmallRight } from "react-icons/hi2";
+import { CiHeart } from "react-icons/ci";
+import { TbShoppingBag } from "react-icons/tb";
 import './PackagesSlider.css';
 
 const PackagesSlider = memo(function PackagesSlider() {
@@ -93,24 +97,27 @@ const PackagesSlider = memo(function PackagesSlider() {
           <div className="packages-slider__track" style={{ transform: `translateX(-${index * (100/visible)}%)` }}>
             {packages.map((pkg) => (
               <div key={pkg.id} className="packages-slider__card">
-                <div className="packages-slider__image" style={{ background: pkg.background }}>
-                  <div style={{ textAlign: 'center', color: '#fff' }}>
-                    <div style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>{pkg.icon}</div>
-                    <h3 style={{ margin: 0, color: '#fff', fontSize: '1.15rem', fontWeight: '700' }}>{pkg.subtitle}</h3>
-                  </div>
+                <div className="packages-slider__header">
+                  <img
+                    src="https://cdn.salla.sa/DQYwE/60e65ac0-11ff-4c02-a51d-1df33680522d-500x375.10584250635-jfWA4k2ZTz1KIraipWtBoxrfuWrIO1Npoq146dPR.jpg"
+                    alt="خدمة"
+                    className="packages-slider__header-image"
+                  />
                 </div>
                 <div className="packages-slider__content">
-                  <h4 className="packages-slider__name">{pkg.title}</h4>
+                  <h4 className="packages-slider__description">{pkg.subtitle}</h4>
                   <div className="packages-slider__pricing">
-                    <div className="packages-slider__price-main">
-                      <span className="packages-slider__price">﷼ {pkg.price}</span>
-                      {pkg.oldPrice && (
-                        <span className="packages-slider__old-price">﷼ {pkg.oldPrice}</span>
-                      )}
-                    </div>
-                    {pkg.saved && (
-                      <span className="packages-slider__saved">وفر {pkg.saved}.00 ر.س</span>
-                    )}
+                    <span className="packages-slider__price">{pkg.price}</span>
+                    <span className="packages-slider__price-unit">إلى</span>
+                  </div>
+                  <div className="packages-slider__actions">
+                    <button className="packages-slider__favorite-btn">
+                      <CiHeart />
+                    </button>
+                    <button className="packages-slider__add-to-cart">
+                      <TbShoppingBag />
+                      إضافة للسلة
+                    </button>
                   </div>
                 </div>
               </div>
@@ -119,13 +126,17 @@ const PackagesSlider = memo(function PackagesSlider() {
         </div>
 
         <div className="packages-slider__controls">
-          <button className="packages-slider__arrow" onClick={prevSlide} aria-label="السابق">‹</button>
+          <button className="packages-slider__arrow" onClick={prevSlide} aria-label="السابق">
+            <HiArrowSmallRight />
+          </button>
           <div className="packages-slider__dots">
             {Array.from({ length: maxIndex + 1 }).map((_, i) => (
               <button key={i} className={`packages-slider__dot ${i===index? 'is-active':''}`} onClick={() => setIndex(i)} aria-label={`شريحة ${i+1}`} />
             ))}
           </div>
-          <button className="packages-slider__arrow" onClick={nextSlide} aria-label="التالي">›</button>
+          <button className="packages-slider__arrow" onClick={nextSlide} aria-label="التالي">
+            <HiArrowSmallLeft />
+          </button>
         </div>
       </div>
     </section>

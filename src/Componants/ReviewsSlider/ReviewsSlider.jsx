@@ -1,4 +1,6 @@
 import React, { memo, useState, useEffect } from 'react';
+import { HiArrowSmallLeft } from "react-icons/hi2";
+import { HiArrowSmallRight } from "react-icons/hi2";
 import './ReviewsSlider.css';
 
 const ReviewsSlider = memo(function ReviewsSlider() {
@@ -103,13 +105,17 @@ const ReviewsSlider = memo(function ReviewsSlider() {
         </div>
 
         <div className="reviews-slider__controls">
-          <button className="reviews-slider__arrow" onClick={prevSlide} aria-label="السابق">‹</button>
+          <button className="reviews-slider__arrow" onClick={prevSlide} aria-label="السابق">
+            <HiArrowSmallRight />
+          </button>
           <div className="reviews-slider__dots">
             {Array.from({ length: maxIndex + 1 }).map((_, i) => (
               <button key={i} className={`reviews-slider__dot ${i===index? 'is-active':''}`} onClick={() => setIndex(i)} aria-label={`شريحة ${i+1}`} />
             ))}
           </div>
-          <button className="reviews-slider__arrow" onClick={nextSlide} aria-label="التالي">›</button>
+          <button className="reviews-slider__arrow" onClick={nextSlide} aria-label="التالي">
+            <HiArrowSmallLeft />
+          </button>
         </div>
       </div>
     </section>

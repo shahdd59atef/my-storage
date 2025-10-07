@@ -1,4 +1,8 @@
 import React, { memo, useState, useEffect } from 'react';
+import { HiArrowSmallLeft } from "react-icons/hi2";
+import { HiArrowSmallRight } from "react-icons/hi2";
+import { CiHeart } from "react-icons/ci";
+import { TbShoppingBag } from "react-icons/tb";
 import './SocialServicesSlider.css';
 
 const SocialServicesSlider = memo(function SocialServicesSlider() {
@@ -83,23 +87,40 @@ const SocialServicesSlider = memo(function SocialServicesSlider() {
           <div className="social-services__track" style={{ transform: `translateX(-${index * (100/visible)}%)` }}>
             {services.map((service) => (
               <div key={service.id} className="social-services__card">
-                <div className="social-services__image" style={{ background: service.background }}>
-                  <div style={{ textAlign: 'center', color: '#fff' }}>
-                    <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>{service.icon}</div>
-                    <h3 style={{ margin: 0, color: '#fff', fontSize: '1.3rem', fontWeight: '800' }}>{service.platform}</h3>
+                <div className="social-services__header">
+                  <div className="social-services__logo">
+                    <div className="social-services__logo-bg">
+                      <span className="social-services__logo-text">Z</span>
+                    </div>
+                    <span className="social-services__logo-subtitle">عز للخدمات التسويقية</span>
+                  </div>
+                  <div className="social-services__title-section">
+                    <h4 className="social-services__name">{service.title}</h4>
+                    <div className="social-services__highlight">
+                      <span>اسبوع عمل فقط</span>
+                    </div>
+                    <button className="social-services__order-btn">اطلب خدمتك الآن</button>
+                  </div>
+                  <div className="social-services__laptop">
+                    <div className="social-services__laptop-screen">
+                      <div className="social-services__website-mockup"></div>
+                    </div>
                   </div>
                 </div>
                 <div className="social-services__content">
-                  <h4 className="social-services__name">{service.title}</h4>
-                  {service.subtitle && (
-                    <p className="social-services__subtitle">{service.subtitle}</p>
-                  )}
+                  <h4 className="social-services__description">{service.platform}</h4>
                   <div className="social-services__pricing">
-                    <div className="social-services__price-main">
-                      <span className="social-services__price">﷼ {service.price}</span>
-                      <span className="social-services__old-price">﷼ {service.oldPrice}</span>
-                    </div>
-                    <span className="social-services__saved">وفر {service.saved}.00 ر.س</span>
+                    <span className="social-services__price">{service.price}</span>
+                    <span className="social-services__price-unit">إلى</span>
+                  </div>
+                  <div className="social-services__actions">
+                    <button className="social-services__favorite-btn">
+                      <CiHeart />
+                    </button>
+                    <button className="social-services__add-to-cart">
+                      <TbShoppingBag />
+                      إضافة للسلة
+                    </button>
                   </div>
                 </div>
               </div>
@@ -108,13 +129,17 @@ const SocialServicesSlider = memo(function SocialServicesSlider() {
         </div>
 
         <div className="social-services__controls">
-          <button className="social-services__arrow" onClick={prevSlide} aria-label="السابق">‹</button>
+          <button className="social-services__arrow" onClick={prevSlide} aria-label="السابق">
+            <HiArrowSmallRight />
+          </button>
           <div className="social-services__dots">
             {Array.from({ length: maxIndex + 1 }).map((_, i) => (
               <button key={i} className={`social-services__dot ${i===index? 'is-active':''}`} onClick={() => setIndex(i)} aria-label={`شريحة ${i+1}`} />
             ))}
           </div>
-          <button className="social-services__arrow" onClick={nextSlide} aria-label="التالي">›</button>
+          <button className="social-services__arrow" onClick={nextSlide} aria-label="التالي">
+            <HiArrowSmallLeft />
+          </button>
         </div>
       </div>
     </section>

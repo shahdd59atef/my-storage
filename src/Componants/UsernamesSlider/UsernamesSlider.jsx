@@ -1,4 +1,8 @@
 import React, { memo, useState, useEffect } from 'react';
+import { HiArrowSmallLeft } from "react-icons/hi2";
+import { HiArrowSmallRight } from "react-icons/hi2";
+import { CiHeart } from "react-icons/ci";
+import { TbShoppingBag } from "react-icons/tb";
 import './UsernamesSlider.css';
 
 const UsernamesSlider = memo(function UsernamesSlider() {
@@ -95,24 +99,27 @@ const UsernamesSlider = memo(function UsernamesSlider() {
           <div className="usernames-slider__track" style={{ transform: `translateX(-${index * (100/visible)}%)` }}>
             {usernames.map((username) => (
               <div key={username.id} className="usernames-slider__card">
-                <div className="usernames-slider__image" style={{ background: username.background }}>
-                  <div style={{ textAlign: 'center', color: '#fff' }}>
-                    <div style={{ fontSize: '3.5rem', marginBottom: '1rem' }}>{username.icon}</div>
-                    <h3 style={{ margin: 0, color: '#fff', fontSize: '1.15rem', fontWeight: '700' }}>{username.subtitle}</h3>
-                  </div>
+                <div className="usernames-slider__header">
+                  <img
+                    src="https://cdn.salla.sa/DQYwE/60e65ac0-11ff-4c02-a51d-1df33680522d-500x375.10584250635-jfWA4k2ZTz1KIraipWtBoxrfuWrIO1Npoq146dPR.jpg"
+                    alt="خدمة"
+                    className="usernames-slider__header-image"
+                  />
                 </div>
                 <div className="usernames-slider__content">
-                  <h4 className="usernames-slider__name">{username.title}</h4>
+                  <h4 className="usernames-slider__description">{username.subtitle}</h4>
                   <div className="usernames-slider__pricing">
-                    <div className="usernames-slider__price-main">
-                      <span className="usernames-slider__price">﷼ {username.price}</span>
-                      {username.oldPrice && (
-                        <span className="usernames-slider__old-price">﷼ {username.oldPrice}</span>
-                      )}
-                    </div>
-                    {username.saved && (
-                      <span className="usernames-slider__saved">وفر {username.saved}.00 ر.س</span>
-                    )}
+                    <span className="usernames-slider__price">{username.price}</span>
+                    <span className="usernames-slider__price-unit">إلى</span>
+                  </div>
+                  <div className="usernames-slider__actions">
+                    <button className="usernames-slider__favorite-btn">
+                      <CiHeart />
+                    </button>
+                    <button className="usernames-slider__add-to-cart">
+                      <TbShoppingBag />
+                      إضافة للسلة
+                    </button>
                   </div>
                 </div>
               </div>
@@ -121,13 +128,17 @@ const UsernamesSlider = memo(function UsernamesSlider() {
         </div>
 
         <div className="usernames-slider__controls">
-          <button className="usernames-slider__arrow" onClick={prevSlide} aria-label="السابق">‹</button>
+          <button className="usernames-slider__arrow" onClick={prevSlide} aria-label="السابق">
+            <HiArrowSmallRight />
+          </button>
           <div className="usernames-slider__dots">
             {Array.from({ length: maxIndex + 1 }).map((_, i) => (
               <button key={i} className={`usernames-slider__dot ${i===index? 'is-active':''}`} onClick={() => setIndex(i)} aria-label={`شريحة ${i+1}`} />
             ))}
           </div>
-          <button className="usernames-slider__arrow" onClick={nextSlide} aria-label="التالي">›</button>
+          <button className="usernames-slider__arrow" onClick={nextSlide} aria-label="التالي">
+            <HiArrowSmallLeft />
+          </button>
         </div>
       </div>
     </section>

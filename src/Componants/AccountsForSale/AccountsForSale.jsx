@@ -1,10 +1,21 @@
 import React, { memo, useState } from 'react';
+import { IoIosHeartEmpty } from "react-icons/io";
+import { PiShoppingBag } from "react-icons/pi";
 import './AccountsForSale.css';
 
 const AccountsForSale = memo(() => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [selectedSort, setSelectedSort] = useState('ترتيب مقترحاتنا');
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // يمكن تغييرها حسب حالة تسجيل الدخول
+  
+  const handleFavoriteClick = () => {
+    if (!isLoggedIn) {
+      alert('يرجى تسجيل الدخول للاستفادة من هذه الميزة');
+      return;
+    }
+    // منطق إضافة للمفضلة هنا
+  };
   
   const products = [
     {
@@ -156,10 +167,12 @@ const AccountsForSale = memo(() => {
                   <h4 className="accounts-for-sale__product-title">{product.title}</h4>
                   <p className="accounts-for-sale__product-price">{product.price}</p>
                   <div className="accounts-for-sale__product-actions">
-                    <button className="accounts-for-sale__favorite-btn">❤️</button>
+                    <button className="accounts-for-sale__favorite-btn" onClick={handleFavoriteClick}>
+                      <IoIosHeartEmpty />
+                    </button>
                     <button className="accounts-for-sale__add-to-cart">
-                      <span className="accounts-for-sale__cart-icon">🛒</span>
-                      أضف للسلة
+                      <PiShoppingBag />
+                      إضافة للسلة
                     </button>
                     <button className="accounts-for-sale__contact-btn">راسلنا</button>
                   </div>
@@ -235,6 +248,7 @@ const AccountsForSale = memo(() => {
 AccountsForSale.displayName = 'AccountsForSale';
 
 export default AccountsForSale;
+
 
 
 

@@ -1,6 +1,6 @@
 /* Footer Styles - White & Orange Theme */
 .footer { 
-  background: #ffffff; 
+  background: #1f1f2c; 
   color: #374151; 
   padding: 3rem 0 1.5rem; 
   margin-top: 3rem; 
@@ -44,7 +44,7 @@
 }
 
 .footer__logo-img { 
-  height: 180px; 
+  height: 120px; 
   width: auto; 
   display: block;
   filter: none;
@@ -81,7 +81,7 @@
 }
 
 .footer__social-link:hover { 
-  background: #ff6b35; 
+  background: #F7EC06; 
   transform: translateY(-3px);
 }
 
@@ -117,6 +117,30 @@
   font-size: 1rem;
 }
 
+.footer__icon svg {
+  font-size: 1.2rem;
+}
+
+.footer__contact-item:nth-child(1) .footer__icon svg {
+  color: #6b7280;
+}
+
+.footer__contact-item:nth-child(2) .footer__icon svg {
+  color: #25D366;
+}
+
+.footer__contact-item:nth-child(3) .footer__icon svg {
+  color: #0088cc;
+}
+
+.footer__contact-item:nth-child(4) .footer__icon svg {
+  color: #6b7280;
+}
+
+.footer__contact-item:nth-child(5) .footer__icon svg {
+  color: #6b7280;
+}
+
 .footer__list a { 
   color: #6b7280; 
   text-decoration: none;
@@ -124,7 +148,7 @@
 }
 
 .footer__list a:hover { 
-  color: #ff6b35; 
+  color: #F7EC06; 
 }
 
 .footer__list span {
@@ -219,7 +243,7 @@
   }
 
   .footer__logo-img {
-    height: 140px;
+    height: 100px;
   }
 
   .footer__tagline {
@@ -283,7 +307,7 @@
   }
   
   .footer__logo-img {
-    height: 100px;
+    height: 80px;
   }
 
   .footer__tagline {
@@ -370,7 +394,7 @@
   }
   
   .footer__logo-img {
-    height: 85px;
+    height: 70px;
   }
 
   .footer__tagline {
@@ -457,7 +481,7 @@
   }
   
   .footer__logo-img {
-    height: 75px;
+    height: 60px;
   }
 
   .footer__tagline {
