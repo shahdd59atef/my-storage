@@ -15,7 +15,7 @@ const ServicesSlider = memo(function ServicesSlider() {
     { id: 'exclusive', title: 'يوزرات حصرية', img: 'https://cdn.salla.sa/form-builder/V02YZMlYZ8BtAxcsyHgznb8COwnMQrFfheQHte5h.png', link: '/usernames-services' },
   ];
 
-  const visible = 6; // عدد الكروت المرئية
+  const visible = 3; // عدد الكروت المرئية
   const [index, setIndex] = useState(0);
   const maxIndex = Math.max(0, items.length - visible);
 
@@ -61,16 +61,16 @@ const ServicesSlider = memo(function ServicesSlider() {
         </div>
 
         <div className="services__controls">
-          <button className="services__arrow" onClick={next} aria-label="التالي">
-            <HiArrowSmallRight />
+          <button className="services__arrow" onClick={prev} aria-label="السابق">
+            <HiArrowSmallLeft />
           </button>
           <div className="services__dots">
             {Array.from({ length: totalPages }).map((_, i) => (
               <button key={i} className={`services__dot ${i===currentPage? 'is-active':''}`} onClick={() => goTo(i)} aria-label={`صفحة ${i+1}`} />
             ))}
           </div>
-          <button className="services__arrow" onClick={prev} aria-label="السابق">
-            <HiArrowSmallLeft />
+          <button className="services__arrow" onClick={next} aria-label="التالي">
+            <HiArrowSmallRight />
           </button>
         </div>
       </div>

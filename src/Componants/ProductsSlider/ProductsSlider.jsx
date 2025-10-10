@@ -41,7 +41,7 @@ const ProductsSlider = memo(function ProductsSlider() {
     }
   ];
 
-  const visible = 4;
+  const visible = 3;
   const [index, setIndex] = useState(0);
   const maxIndex = Math.max(0, products.length - visible);
   const goTo = useCallback((i) => setIndex(Math.min(Math.max(i, 0), maxIndex)), [maxIndex]);

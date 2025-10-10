@@ -56,24 +56,65 @@ const Navbar = memo(() => {
   return (
     <nav className="bg-[#141420] py-1.5 relative z-[1000] h-30 shadow-[(247,236,6,0.15)] rounded-xl my-3 mx-auto w-[85%] -mb-20">
       <div className="max-w-[1000px] mx-auto px-4 flex flex-col gap-1">
-        {/* Header: Mobile Menu Button */}
-        <div className="flex items-center justify-between w-full lg:hidden py-2">
+        {/* Mobile/Tablet Layout */}
+        <div className="flex items-center justify-between w-full md:hidden py-3 px-4">
+          {/* Left side - Moon icon */}
+          <div className="flex items-center">
+            <MdDarkMode className="text-white text-lg cursor-pointer hover:text-[#F7EC06] transition-colors duration-300" />
+          </div>
 
-          <div className="flex items-center gap-3">
+          {/* Center - Logo and text */}
+          <div className="flex flex-col items-center">
             <img 
               src="https://cdn.salla.sa/cdn-cgi/image/fit=scale-down,width=400,height=400,onerror=redirect,format=auto/DQYwE/wyWnbCpitH0YrIqGM6cmhukxXFJX8zWn8RnN3DLW.png" 
               alt="Logo" 
-              className="h-8 w-auto"
+              className="h-8 w-auto mb-1"
             />
-          <button
-            className={`flex flex-col gap-[4px] bg-none border-none cursor-pointer p-1.5 transition-all duration-300 ${isMenuOpen ? 'active' : ''}`}
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            <span className={`w-[22px] h-[2.5px] bg-[#F7EC06] rounded-sm transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-[6.5px]' : ''}`}></span>
-            <span className={`w-[22px] h-[2.5px] bg-[#F7EC06] rounded-sm transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`w-[22px] h-[2.5px] bg-[#F7EC06] rounded-sm transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-[6.5px]' : ''}`}></span>
-          </button>
+            <span className="text-white text-xs font-medium text-center">عز للخدمات التسويقية</span>
+          </div>
+
+          {/* Right side - Hamburger menu */}
+          <div className="flex items-center">
+            <button
+              className={`flex flex-col gap-[3px] bg-none border-none cursor-pointer p-1 transition-all duration-300 ${isMenuOpen ? 'active' : ''}`}
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              <span className={`w-[20px] h-[2px] bg-white rounded-sm transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-[6px]' : ''}`}></span>
+              <span className={`w-[20px] h-[2px] bg-white rounded-sm transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`w-[20px] h-[2px] bg-white rounded-sm transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-[6px]' : ''}`}></span>
+            </button>
+          </div>
+        </div>
+
+        {/* Tablet Layout */}
+        <div className="flex items-center justify-between w-full hidden md:flex lg:hidden py-3 px-6">
+          {/* Left side - Moon icon */}
+          <div className="flex items-center">
+            <MdDarkMode className="text-white text-xl cursor-pointer hover:text-[#F7EC06] transition-colors duration-300" />
+          </div>
+
+          {/* Center - Logo and text */}
+          <div className="flex flex-col items-center">
+            <img 
+              src="https://cdn.salla.sa/cdn-cgi/image/fit=scale-down,width=400,height=400,onerror=redirect,format=auto/DQYwE/wyWnbCpitH0YrIqGM6cmhukxXFJX8zWn8RnN3DLW.png" 
+              alt="Logo" 
+              className="h-10 w-auto mb-1"
+            />
+            <span className="text-white text-sm font-medium text-center">عز للخدمات التسويقية</span>
+          </div>
+
+          {/* Right side - Hamburger menu */}
+          <div className="flex items-center">
+            <button
+              className={`flex flex-col gap-[4px] bg-none border-none cursor-pointer p-1.5 transition-all duration-300 ${isMenuOpen ? 'active' : ''}`}
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              <span className={`w-[22px] h-[2.5px] bg-white rounded-sm transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-[6.5px]' : ''}`}></span>
+              <span className={`w-[22px] h-[2.5px] bg-white rounded-sm transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`w-[22px] h-[2.5px] bg-white rounded-sm transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-[6.5px]' : ''}`}></span>
+            </button>
           </div>
         </div>
         <div className="w-full hidden lg:flex flex-col items-center gap-1">
@@ -378,7 +419,170 @@ const Navbar = memo(() => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden overflow-hidden transition-all duration-500 bg-[#141420] border-t border-[rgba(247,236,6,0.2)] ${isMenuOpen ? 'max-h-[1000px] py-4' : 'max-h-0'}`}>
+      <div className={`md:hidden overflow-hidden transition-all duration-500 bg-[#141420] border-t border-[rgba(247,236,6,0.2)] ${isMenuOpen ? 'max-h-[1000px] py-4' : 'max-h-0'}`}>
+        <ul className="list-none p-0 m-0 max-w-[900px] mx-auto px-4">
+          <li className="border-b border-[rgba(247,236,6,0.1)]">
+            <a href="/blog" className="block py-3 px-3 text-white text-sm no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6 rounded-md" onClick={closeMenu}>
+              المدونة
+            </a>
+          </li>
+          
+          {/* خدمات السوشيال ميديا مع dropdown */}
+          <li className="border-b border-[rgba(247,236,6,0.1)]">
+            <button 
+              className="w-full flex items-center justify-between py-3 px-3 text-white text-sm font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] rounded-md bg-transparent border-none cursor-pointer text-right"
+              onClick={() => toggleMobileDropdown('social')}
+            >
+              <RiArrowDropDownLine className={`text-xl transition-transform duration-300 ${mobileDropdown === 'social' ? 'rotate-180' : ''}`} />
+              <span>خدمات مواقع التواصل الاجتماعي</span>
+            </button>
+            <div className={`overflow-hidden transition-all duration-300 ${mobileDropdown === 'social' ? 'max-h-[500px]' : 'max-h-0'}`}>
+              <ul className="list-none p-0 m-0 bg-[rgba(255,107,53,0.05)] rounded-md mr-4 mb-2">
+                <li>
+                  <a href="/social-media-services" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    عرض الكل
+                  </a>
+                </li>
+                <li>
+                  <a href="/snapchat-capture" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    كابشر سناب شات
+                  </a>
+                </li>
+                <li>
+                  <a href="/snapchat-points" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    نقاط سناب شات
+                  </a>
+                </li>
+                <li>
+                  <a href="/snapchat-story-views" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    مشاهدات ستوري
+                  </a>
+                </li>
+                <li>
+                  <a href="/snapchat-followers" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    زيادة متابعين
+                  </a>
+                </li>
+                <li>
+                  <a href="/snapchat-accounts" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    حسابات سناب شات
+                  </a>
+                </li>
+                <li>
+                  <a href="/snapchat-ads" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    إعلانات سناب شات
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          
+          {/* يوزرات مع dropdown */}
+          <li className="border-b border-[rgba(247,236,6,0.1)]">
+            <button 
+              className="w-full flex items-center justify-between py-3 px-3 text-white text-sm font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] rounded-md bg-transparent border-none cursor-pointer text-right"
+              onClick={() => toggleMobileDropdown('usernames')}
+            >
+              <RiArrowDropDownLine className={`text-xl transition-transform duration-300 ${mobileDropdown === 'usernames' ? 'rotate-180' : ''}`} />
+              <span>يوزرات</span>
+            </button>
+            <div className={`overflow-hidden transition-all duration-300 ${mobileDropdown === 'usernames' ? 'max-h-[400px]' : 'max-h-0'}`}>
+              <ul className="list-none p-0 m-0 bg-[rgba(255,107,53,0.05)] rounded-md mr-4 mb-2">
+                <li>
+                  <a href="/usernames-services" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    عرض الكل
+                  </a>
+                </li>
+                <li>
+                  <a href="/username-3char" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    يوزرات 3 أحرف
+                  </a>
+                </li>
+                <li>
+                  <a href="/username-4char" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    يوزرات 4 أحرف
+                  </a>
+                </li>
+                <li>
+                  <a href="#instagram-usernames" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    يوزرات انستقرام
+                  </a>
+                </li>
+                <li>
+                  <a href="#tiktok-usernames" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    يوزرات تيك توك
+                  </a>
+                </li>
+                <li>
+                  <a href="#twitter-usernames" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    يوزرات تويتر (X)
+                  </a>
+                </li>
+                <li>
+                  <a href="#discord-usernames" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    يوزرات ديسكورد
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          
+          <li className="border-b border-[rgba(247,236,6,0.1)]">
+            <button 
+              className="w-full flex items-center justify-between py-3 px-3 text-white text-sm font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] rounded-md bg-transparent border-none cursor-pointer text-right"
+              onClick={() => toggleMobileDropdown('accounts')}
+            >
+              <RiArrowDropDownLine className={`text-xl transition-transform duration-300 ${mobileDropdown === 'accounts' ? 'rotate-180' : ''}`} />
+              <span>اداره حسابات</span>
+            </button>
+            <div className={`overflow-hidden transition-all duration-300 ${mobileDropdown === 'accounts' ? 'max-h-[300px]' : 'max-h-0'}`}>
+              <ul className="list-none p-0 m-0 bg-[rgba(255,107,53,0.05)] rounded-md mr-4 mb-2">
+                <li>
+                  <a href="/accounts-management" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    عرض الكل
+                  </a>
+                </li>
+                <li>
+                  <a href="/accounts-for-sale" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    حسابات للبيع
+                  </a>
+                </li>
+                <li>
+                  <a href="/verification-services" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    توثيق حسابات
+                  </a>
+                </li>
+                <li>
+                  <a href="/ads-campaigns-services" className="block py-2 px-4 text-gray-300 text-xs no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6" onClick={closeMenu}>
+                    إدارة الحملات الإعلانية
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          
+          <li className="border-b border-[rgba(247,236,6,0.1)]">
+            <a href="/graphic-design" className="block py-3 px-3 text-white text-sm no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6 rounded-md" onClick={closeMenu}>
+              التصميم الجرافيكي
+            </a>
+          </li>
+          
+          <li className="border-b border-[rgba(247,236,6,0.1)]">
+            <a href="/web-apps" className="block py-3 px-3 text-white text-sm no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6 rounded-md" onClick={closeMenu}>
+              برمجة الويب والتطبيقات
+            </a>
+          </li>
+          
+          <li>
+            <a href="#motion-graphics" className="block py-3 px-3 text-white text-sm no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6 rounded-md" onClick={closeMenu}>
+              الموشن جرافيك
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      {/* Tablet Menu */}
+      <div className={`hidden md:block lg:hidden overflow-hidden transition-all duration-500 bg-[#141420] border-t border-[rgba(247,236,6,0.2)] ${isMenuOpen ? 'max-h-[1000px] py-4' : 'max-h-0'}`}>
         <ul className="list-none p-0 m-0 max-w-[900px] mx-auto px-4">
           <li className="border-b border-[rgba(247,236,6,0.1)]">
             <a href="/blog" className="block py-3 px-3 text-white text-sm no-underline font-semibold transition-all duration-300 hover:text-[#F7EC06] hover:bg-[rgba(247,236,6,0.1)] hover:pr-6 rounded-md" onClick={closeMenu}>

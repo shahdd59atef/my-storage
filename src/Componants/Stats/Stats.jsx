@@ -11,10 +11,10 @@ export default function Stats() {
   const startTimeRef = useRef(null);
   
   const stats = [
-    { value: 440, label: 'وقفوا حساباتهم معنا بنجاح' },
-    { value: 1000, label: 'يثقون بخدماتنا للتوثيق والنمو' },
-    { value: 500, label: 'حساب موثق عبر عز' },
-    { value: 670, label: 'حصلوا تفاعل وحضور قوي' }
+    { value: 1000, label: 'وثقوا حساباتهم معنا بنجاح' },
+    { value: 440, label: 'يثقون بخدماتنا للتوثيق والنمو' },
+    { value: 670, label: 'حصلوا على تفاعل وحضور قوي' },
+    { value: 500, label: 'حساب موثق عبر عز' }
   ];
 
   // Detect when section becomes visible and handle scroll

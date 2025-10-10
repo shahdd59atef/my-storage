@@ -1,55 +1,52 @@
 import React from "react";
-import { CiHeart } from "react-icons/ci";
-import { PiShareFat } from "react-icons/pi";
+import { TbShoppingBag } from "react-icons/tb";
 import './ProductCard.css';
 
 const ProductCard = () => {
+  const graphicDesignServices = [
+    {
+      id: 1,
+      title: "تصميم لوقو",
+      price: "300",
+      image: "https://cdn.salla.sa/DQYwE/60e65ac0-11ff-4c02-a51d-1df33680522d-500x375.10584250635-jfWA4k2ZTz1KIraipWtBoxrfuWrIO1Npoq146dPR.jpg",
+      description: "تصميم لوقو احترافي"
+    },
+    {
+      id: 2,
+      title: "تصميم سوشيال ميديا",
+      price: "25",
+      image: "https://cdn.salla.sa/DQYwE/60e65ac0-11ff-4c02-a51d-1df33680522d-500x375.10584250635-jfWA4k2ZTz1KIraipWtBoxrfuWrIO1Npoq146dPR.jpg",
+      description: "تصميم محتوى السوشيال ميديا"
+    }
+  ];
+
   return (
-    <div className="product-card flex flex-col md:flex-row items-start justify-between bg-[#1F1F2C] text-white p-6 rounded-2xl shadow-lg max-w-5xl mx-auto my-10">
-      
-      {/* الجزء الشمال (التفاصيل) */}
-      <div className="flex-1 space-y-4 relative">
-        {/* الأيقونات */}
-        <div className="flex items-center gap-4 mb-4">
-          <button className="text-gray-300 hover:text-yellow-400 text-2xl transition-all">
-            <CiHeart />
-          </button>
-          <button className="text-gray-300 hover:text-yellow-400 text-2xl transition-all">
-            <PiShareFat />
-          </button>
+    <section className="graphic-design-section" dir="rtl">
+      <div className="graphic-design-container">
+        <h2 className="graphic-design-title">التصميم الجرافيكي</h2>
+        
+        <div className="graphic-design-cards">
+          {graphicDesignServices.map((service) => (
+            <div key={service.id} className="graphic-design-card">
+              <div className="graphic-design-image">
+                <img src={service.image} alt={service.title} />
+              </div>
+              <div className="graphic-design-content">
+                <h3 className="graphic-design-service-title">{service.title}</h3>
+                <div className="graphic-design-price">
+                  <span className="price-number">{service.price}</span>
+                  <span className="price-currency">﷼</span>
+                </div>
+                <button className="graphic-design-add-to-cart">
+                  <TbShoppingBag />
+                  إضافة للسلة
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-
-        {/* الاسم والسعر */}
-        <h2 className="text-2xl font-semibold no-divider">مشاهدات سناب 100</h2>
-        <p className="text-gray-400 text-lg">75 ﷼</p>
-
-        {/* عدد المبيعات */}
-        <div className="flex items-center gap-2 text-gray-400 text-sm">
-          <span className="text-yellow-400 text-xl">🔥</span>
-          تم بيعه أكثر من <span className="font-bold text-white">6</span>
-        </div>
-
-        {/* الوصف */}
-        <p className="text-gray-400 leading-relaxed">
-          ضع اسم المستخدم الخاص بك في منطقة الرابط<br />
-          100 مشاهدة فعّالة لجميع قصصك (حد 20 قصة)
-        </p>
-
-        {/* الزر */}
-        <button className="bg-[#343444] text-white font-semibold w-full py-3 rounded-md hover:bg-yellow-400 hover:text-[#1F1F2C] transition">
-          إضافة للسلة
-        </button>
       </div>
-
-      {/* الجزء اليمين (الصورة) */}
-      <div className="flex-1 flex justify-center mt-8 md:mt-0">
-        <img
-          src="https://cdn.salla.sa/DQYwE/40c6b05a-e635-47e1-87ea-ac765b6e3f40-400x500-QGuJ4XmWyyOvg1ZUcOmY28x7RGEIk9PLWpHWXHtd.jpg"
-          alt="مشاهدات سناب"
-          className="rounded-2xl w-[90%] max-w-sm"
-        />
-      </div>
-    </div>
+    </section>
   );
 };
 
