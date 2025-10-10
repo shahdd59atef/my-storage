@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react';
 import { IoIosHeartEmpty } from "react-icons/io";
 import { PiShoppingBag } from "react-icons/pi";
+import { CiStar } from "react-icons/ci";
 import './Verification.css';
 
 const Verification = memo(() => {
@@ -21,7 +22,7 @@ const Verification = memo(() => {
     {
       id: 1,
       title: 'توثيق حساب سناب شات',
-      price: '1200 ريال',
+      price: 'ريال 100',
       category: 'سناب شات',
       icon: '👻',
       badge: '1★'
@@ -29,7 +30,7 @@ const Verification = memo(() => {
     {
       id: 2,
       title: 'توثيق حساب انستقرام',
-      price: '1000 ريال',
+      price: 'ريال 100',
       category: 'انستقرام',
       icon: '📷',
       badge: '1★'
@@ -37,7 +38,7 @@ const Verification = memo(() => {
     {
       id: 3,
       title: 'توثيق حساب تيك توك',
-      price: '900 ريال',
+      price: 'ريال 100',
       category: 'تيك توك',
       icon: '🎵',
       badge: '1★'
@@ -45,7 +46,7 @@ const Verification = memo(() => {
     {
       id: 4,
       title: 'توثيق حساب تويتر',
-      price: '1100 ريال',
+      price: 'ريال 100',
       category: 'تويتر',
       icon: '🐦',
       badge: '1★'
@@ -154,13 +155,20 @@ const Verification = memo(() => {
             {products.map((product) => (
               <div key={product.id} className="verification__product-card">
                 <div className="verification__product-header">
+                  <div className="verification__product-image">
+                    <img 
+                      src="https://cdn.salla.sa/DQYwE/vknfwxMv9gXEyMCt5M6hCQOZIxj59EOlvKq8f2Gl.jpg"
+                      alt={product.title}
+                      className="verification__main-image"
+                    />
+                  </div>
                   <div className="verification__product-logo">
                     <span className="verification__product-logo-letter">Z</span>
                   </div>
                   <span className="verification__category-icon">{product.icon}</span>
                   <div className="verification__product-line"></div>
                   <h3 className="verification__product-subtitle">{product.category}</h3>
-                  <span className="verification__star">⭐</span>
+                  <span className="verification__star"><CiStar /></span>
                   <span className="verification__badge">{product.badge}</span>
                 </div>
                 <div className="verification__product-content">
@@ -174,7 +182,6 @@ const Verification = memo(() => {
                       <PiShoppingBag />
                       إضافة للسلة
                     </button>
-                    <button className="verification__contact-btn">راسلنا</button>
                   </div>
                 </div>
               </div>
@@ -213,7 +220,7 @@ const Verification = memo(() => {
                     {reviews.map((review) => (
                       <div key={review.id} className="verification__review-card">
                         <div className="verification__review-rating">
-                          <span className="verification__star">⭐</span>
+                          <span className="verification__star"><CiStar /></span>
                           <span className="verification__rating-number">{review.rating}</span>
                         </div>
                         

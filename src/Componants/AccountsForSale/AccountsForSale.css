@@ -1,6 +1,6 @@
 /* AccountsForSale Styles */
 .accounts-for-sale {
-  background-color: #1f1f2c;
+  background-color: #1F1F2C !important;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
 }
@@ -45,8 +45,8 @@
 }
 
 .accounts-for-sale__sort-btn:hover {
-  color: #F7EC06;
-  background: rgba(247, 236, 6, 0.1);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .accounts-for-sale__dropdown-arrow {
@@ -100,14 +100,14 @@
 }
 
 .accounts-for-sale__dropdown-item:hover {
-  background: rgba(255, 107, 53, 0.1);
-  color: #ff6b35;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
   padding-right: 1.5rem;
 }
 
 .accounts-for-sale__dropdown-item.selected {
-  background: rgba(255, 107, 53, 0.15);
-  color: #ff6b35;
+  background: rgba(247, 236, 6, 0.15);
+  color: #F7EC06;
   font-weight: 600;
 }
 
@@ -117,7 +117,7 @@
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #ff6b35;
+  color: #F7EC06;
   font-weight: bold;
 }
 
@@ -134,7 +134,7 @@
 }
 
 .accounts-for-sale__counter-text:hover {
-  color: #ff6b35;
+  color: #ffffff;
 }
 
 .accounts-for-sale__products {
@@ -147,108 +147,107 @@
 
 /* Product Card */
 .accounts-for-sale__product-card {
-  background: #1F1F2C;
+  background: #F7EC06;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 107, 53, 0.1);
+  border: none;
+  position: relative;
 }
 
 .accounts-for-sale__product-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 35px rgba(255, 107, 53, 0.2);
+  box-shadow: 0 12px 35px rgba(247, 236, 6, 0.2);
 }
 
 .accounts-for-sale__product-header {
-  background: linear-gradient(135deg, #ff6b35, #ffa500);
-  padding: 2rem 1.5rem;
+  background: #1F1F2C;
+  padding: 0;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 160px;
+  min-height: 150px;
 }
 
 .accounts-for-sale__product-logo {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 0.8rem;
+  display: none;
 }
 
 .accounts-for-sale__product-logo-letter {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #ffffff;
+  display: none;
 }
 
 .accounts-for-sale__category-icon {
-  font-size: 2.2rem;
-  margin: 0 0.8rem;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+  display: none;
 }
 
 .accounts-for-sale__product-line {
-  width: 2px;
-  height: 30px;
-  background: rgba(255, 255, 255, 0.3);
-  margin: 0 0.8rem;
+  display: none;
 }
 
 .accounts-for-sale__product-subtitle {
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: bold;
-  margin: 0;
+  display: none;
 }
 
 .accounts-for-sale__star {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  font-size: 1.2rem;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+  display: none;
 }
 
 .accounts-for-sale__badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(255, 255, 255, 0.9);
-  color: #333333;
-  padding: 0.2rem 0.5rem;
-  border-radius: 12px;
-  font-size: 0.7rem;
-  font-weight: bold;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.accounts-for-sale__product-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.accounts-for-sale__main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  border: 4px solid #ffffff;
+}
+
+.accounts-for-sale__main-image:hover {
+  transform: scale(1.1);
 }
 
 .accounts-for-sale__product-content {
-  padding: 2rem 1.5rem;
+  padding: 1.5rem;
+  background: #1F1F2C !important;
 }
 
 .accounts-for-sale__product-title {
-  color: #333333;
+  color: #ffffff !important;
   font-size: 1.1rem;
   font-weight: bold;
   margin: 0 0 0.8rem 0;
+  text-align: right;
 }
 
 .accounts-for-sale__product-price {
-  color: #ff6b35;
+  color: #ffffff !important;
   font-size: 1.3rem;
   font-weight: bold;
   margin: 0 0 1.5rem 0;
+  text-align: right;
 }
 
 .accounts-for-sale__product-actions {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.8rem;
   flex-wrap: wrap;
 }
@@ -256,22 +255,23 @@
 .accounts-for-sale__favorite-btn {
   background: none;
   border: none;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   cursor: pointer;
   padding: 0.4rem;
   border-radius: 50%;
   transition: all 0.3s ease;
+  color: #ffffff;
 }
 
 .accounts-for-sale__favorite-btn:hover {
-  background: rgba(255, 107, 53, 0.1);
+  color: #ffffff;
   transform: scale(1.1);
 }
 
 .accounts-for-sale__add-to-cart {
-  background: linear-gradient(90deg, #ff6b35, #ffa500);
-  color: #ffffff;
-  border: none;
+  background: #2a2a3a !important;
+  color: #F7EC06 !important;
+  border: 2px solid #F7EC06 !important;
   padding: 0.6rem 1.2rem;
   border-radius: 20px;
   font-weight: bold;
@@ -282,43 +282,28 @@
   gap: 0.4rem;
   flex: 1;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  box-shadow: none !important;
   font-size: 0.9rem;
 }
 
 .accounts-for-sale__add-to-cart:hover {
-  background: linear-gradient(90deg, #ffa500, #ff6b35);
+  background: #ffffff !important;
+  color: #2a2a2a !important;
   transform: translateY(-2px);
+  border-color: #ffffff !important;
 }
 
 .accounts-for-sale__cart-icon {
   font-size: 0.9rem;
 }
 
-.accounts-for-sale__contact-btn {
-  background: #6c757d;
-  color: #ffffff;
-  border: none;
-  padding: 0.6rem 1rem;
-  border-radius: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.8rem;
-}
-
-.accounts-for-sale__contact-btn:hover {
-  background: #555555;
-  transform: translateY(-2px);
-}
-
 /* Reviews Section */
 .accounts-for-sale__reviews {
   margin-top: 4rem;
   padding: 3rem 0;
-  background: #1F1F2C;
+  background: #343444;
   border-radius: 20px;
-  border: 1px solid rgba(255, 107, 53, 0.1);
+  border: 1px solid rgba(247, 236, 6, 0.1);
 }
 
 .accounts-for-sale__reviews-header {
@@ -327,8 +312,8 @@
 }
 
 .accounts-for-sale__reviews-title {
-  color: #ff6b35;
-  font-size: 2rem;
+  color: #F7EC06;
+  font-size: 30px;
   font-weight: bold;
   margin: 0;
   position: relative;
@@ -344,7 +329,7 @@
   transform: translateY(-50%);
   width: 4px;
   height: 30px;
-  background: #ff6b35;
+  background: #F7EC06;
   border-radius: 2px;
 }
 
@@ -357,7 +342,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #ff6b35;
+  background: #F7EC06;
   border: none;
   width: 40px;
   height: 40px;
@@ -371,7 +356,8 @@
 }
 
 .accounts-for-sale__slider-btn:hover {
-  background: #ff8555;
+  background: #ffffff;
+  color: #2a2a2a;
 }
 
 .accounts-for-sale__slider-btn--prev {
@@ -401,13 +387,13 @@
 }
 
 .accounts-for-sale__review-card {
-  background: #1F1F2C;
+  background: #343444 !important;
   border-radius: 15px;
   padding: 1.5rem;
   transition: all 0.3s ease;
   position: relative;
-  border: 1px solid rgba(255, 107, 53, 0.1);
-  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.1);
+  border: none;
+  box-shadow: 0 4px 15px rgba(247, 236, 6, 0.1);
   min-width: 300px;
   flex-shrink: 0;
 }
@@ -420,9 +406,14 @@
 }
 
 .accounts-for-sale__rating-number {
-  color: #333333;
+  color: #ffffff;
   font-size: 1rem;
   font-weight: bold;
+}
+
+.accounts-for-sale__star {
+  color: #FACA15 !important;
+  display: inline-block !important;
 }
 
 .accounts-for-sale__reviewer {
@@ -435,17 +426,17 @@
 .accounts-for-sale__reviewer-avatar {
   width: 50px;
   height: 50px;
-  background: rgba(255, 107, 53, 0.1);
+  background: rgba(247, 236, 6, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgba(255, 107, 53, 0.2);
+  border: 2px solid rgba(247, 236, 6, 0.2);
 }
 
 .accounts-for-sale__avatar-icon {
   font-size: 1.5rem;
-  color: #ff6b35;
+  color: #F7EC06;
 }
 
 .accounts-for-sale__reviewer-info {
@@ -474,7 +465,7 @@
   top: -10px;
   left: 10px;
   font-size: 3rem;
-  color: #ff6b35;
+  color: #F7EC06;
   font-family: serif;
   line-height: 1;
   opacity: 0.3;
@@ -485,7 +476,7 @@
   bottom: -20px;
   left: 10px;
   font-size: 3rem;
-  color: #ff6b35;
+  color: #F7EC06;
   font-family: serif;
   line-height: 1;
   opacity: 0.3;

@@ -11,7 +11,7 @@
 
 .products-slider__title { 
   text-align: center; 
-  font-size: 2rem; 
+  font-size: 30px; 
   font-weight: 900; 
   color: #F7EC06; 
   margin: 0 0 3rem; 
@@ -152,14 +152,14 @@
 }
 
 .products-slider__favorite-btn:hover {
-  background: #F7EC06;
+  background: #ffffff;
   color: #2a2a2a;
 }
 
 .products-slider__add-to-cart {
   background: transparent;
   border: 2px solid #F7EC06;
-  color: #ffffff;
+  color: #F7EC06;
   padding: 0.7rem 1.2rem;
   border-radius: 8px;
   font-size: 0.9rem;
@@ -178,8 +178,8 @@
 }
 
 .products-slider__add-to-cart:hover {
-  background: #F7EC06;
-  color: #2a2a2a;
+  background: #ffffff;
+  color: #F7EC06;
 }
 
 

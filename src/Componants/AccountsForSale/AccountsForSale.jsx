@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react';
 import { IoIosHeartEmpty } from "react-icons/io";
 import { PiShoppingBag } from "react-icons/pi";
+import { CiStar } from "react-icons/ci";
 import './AccountsForSale.css';
 
 const AccountsForSale = memo(() => {
@@ -21,7 +22,7 @@ const AccountsForSale = memo(() => {
     {
       id: 1,
       title: 'حسابات سناب شات للبيع',
-      price: '500 ريال',
+      price: 'ريال 100',
       category: 'سناب شات',
       icon: '👻',
       badge: '1★'
@@ -29,7 +30,7 @@ const AccountsForSale = memo(() => {
     {
       id: 2,
       title: 'حسابات انستقرام للبيع',
-      price: '450 ريال',
+      price: 'ريال 100',
       category: 'انستقرام',
       icon: '📷',
       badge: '1★'
@@ -37,7 +38,7 @@ const AccountsForSale = memo(() => {
     {
       id: 3,
       title: 'حسابات تيك توك للبيع',
-      price: '400 ريال',
+      price: 'ريال 100',
       category: 'تيك توك',
       icon: '🎵',
       badge: '1★'
@@ -45,7 +46,7 @@ const AccountsForSale = memo(() => {
     {
       id: 4,
       title: 'حسابات تويتر للبيع',
-      price: '380 ريال',
+      price: 'ريال 100',
       category: 'تويتر',
       icon: '🐦',
       badge: '1★'
@@ -154,13 +155,20 @@ const AccountsForSale = memo(() => {
             {products.map((product) => (
               <div key={product.id} className="accounts-for-sale__product-card">
                 <div className="accounts-for-sale__product-header">
+                  <div className="accounts-for-sale__product-image">
+                    <img
+                      src="https://cdn.salla.sa/DQYwE/vknfwxMv9gXEyMCt5M6hCQOZIxj59EOlvKq8f2Gl.jpg"
+                      alt={product.title}
+                      className="accounts-for-sale__main-image"
+                    />
+                  </div>
                   <div className="accounts-for-sale__product-logo">
                     <span className="accounts-for-sale__product-logo-letter">Z</span>
                   </div>
                   <span className="accounts-for-sale__category-icon">{product.icon}</span>
                   <div className="accounts-for-sale__product-line"></div>
                   <h3 className="accounts-for-sale__product-subtitle">{product.category}</h3>
-                  <span className="accounts-for-sale__star">⭐</span>
+                  <span className="accounts-for-sale__star"><CiStar /></span>
                   <span className="accounts-for-sale__badge">{product.badge}</span>
                 </div>
                 <div className="accounts-for-sale__product-content">
@@ -174,7 +182,6 @@ const AccountsForSale = memo(() => {
                       <PiShoppingBag />
                       إضافة للسلة
                     </button>
-                    <button className="accounts-for-sale__contact-btn">راسلنا</button>
                   </div>
                 </div>
               </div>
@@ -213,7 +220,7 @@ const AccountsForSale = memo(() => {
                     {reviews.map((review) => (
                       <div key={review.id} className="accounts-for-sale__review-card">
                         <div className="accounts-for-sale__review-rating">
-                          <span className="accounts-for-sale__star">⭐</span>
+                          <span className="accounts-for-sale__star"><CiStar /></span>
                           <span className="accounts-for-sale__rating-number">{review.rating}</span>
                         </div>
                         

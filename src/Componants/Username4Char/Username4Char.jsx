@@ -1,4 +1,5 @@
 import React, { memo, useState } from 'react';
+import { CiStar } from "react-icons/ci";
 import './Username4Char.css';
 
 const Username4Char = memo(() => {
@@ -80,7 +81,7 @@ const Username4Char = memo(() => {
                     {reviews.map((review) => (
                       <div key={review.id} className="username-4char__review-card">
                         <div className="username-4char__review-rating">
-                          <span className="username-4char__star">⭐</span>
+                          <span className="username-4char__star"><CiStar /></span>
                           <span className="username-4char__rating-number">{review.rating}</span>
                         </div>
                         
@@ -115,6 +116,10 @@ const Username4Char = memo(() => {
 Username4Char.displayName = 'Username4Char';
 
 export default Username4Char;
+
+
+
+
 
 
 

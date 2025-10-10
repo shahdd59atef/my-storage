@@ -11,7 +11,7 @@
 
 .design-slider__title { 
   text-align: center; 
-  font-size: 2rem; 
+  font-size: 30px; 
   font-weight: 900; 
   color: #ffffff; 
   margin: 0 0 3rem; 
@@ -54,7 +54,7 @@
 
 .design-slider__arrow { 
   background: none;
-  color: #F7EC06;
+  color: #ffffff; /* arrows white */
   border: none; 
   width: 45px; 
   height: 45px; 
@@ -67,7 +67,7 @@
 }
 
 .design-slider__arrow:hover { 
-  color: #ffffff;
+  color: #ffffff; /* keep white on hover */
   transform: scale(1.15);
 }
 
@@ -84,10 +84,10 @@
   width: 10px; 
   height: 10px; 
   border-radius: 50%; 
-  border: 2px solid #ff6b35; 
+  border: 2px solid #ffffff; /* white instead of orange */
   background: transparent; 
   cursor: pointer; 
-  opacity: .5;
+  opacity: .7;
   transition: all 0.3s ease;
   padding: 0;
 }
@@ -98,7 +98,7 @@
 }
 
 .design-slider__dot.is-active { 
-  background: #ff6b35;
+  background: #ffffff; /* active dot white */
   opacity: 1;
   transform: scale(1.2);
 }
@@ -254,7 +254,7 @@
 }
 
 .design-slider__favorite-btn:hover {
-  background: #F7EC06;
+  background: #ffffff;
   color: #343444;
 }
 
@@ -280,7 +280,7 @@
 }
 
 .design-slider__add-to-cart:hover {
-  background: #F7EC06;
+  background: #ffffff;
   color: #343444;
 }
 

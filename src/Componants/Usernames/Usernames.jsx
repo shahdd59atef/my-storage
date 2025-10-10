@@ -1,16 +1,27 @@
 import React, { memo, useState } from 'react';
+import { IoIosHeartEmpty } from "react-icons/io";
+import { PiShoppingBag } from "react-icons/pi";
+import { CiStar } from "react-icons/ci";
 import './Usernames.css';
 
 const Usernames = memo(() => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [selectedSort, setSelectedSort] = useState('ترتيب مقترحاتنا');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleFavoriteClick = () => {
+    if (!isLoggedIn) {
+      alert('يرجى تسجيل الدخول للاستفادة من هذه الميزة');
+      return;
+    }
+  };
   
   const products = [
     {
       id: 1,
       title: 'يوزرات سناب شات مميزة',
-      price: '600 ريال',
+      price: 'ريال 100',
       category: 'سناب شات',
       icon: '👻',
       badge: '1★'
@@ -18,7 +29,7 @@ const Usernames = memo(() => {
     {
       id: 2,
       title: 'يوزرات انستقرام فريدة',
-      price: '550 ريال',
+      price: 'ريال 100',
       category: 'انستقرام',
       icon: '📷',
       badge: '1★'
@@ -26,7 +37,7 @@ const Usernames = memo(() => {
     {
       id: 3,
       title: 'يوزرات تيك توك مميزة',
-      price: '500 ريال',
+      price: 'ريال 100',
       category: 'تيك توك',
       icon: '🎵',
       badge: '1★'
@@ -34,7 +45,7 @@ const Usernames = memo(() => {
     {
       id: 4,
       title: 'يوزرات تويتر نادرة',
-      price: '650 ريال',
+      price: 'ريال 100',
       category: 'تويتر',
       icon: '🐦',
       badge: '1★'
@@ -143,18 +154,33 @@ const Usernames = memo(() => {
             {products.map((product) => (
               <div key={product.id} className="usernames__product-card">
                 <div className="usernames__product-header">
-                  <img
-                    src="https://cdn.salla.sa/DQYwE/M5rnE6RQieGwxLbKyl4EpAHD9Y3OkeObgnKbtYTB.jpg"
-                    alt="خدمة"
-                    className="usernames__product-header-image"
-                  />
+                  <div className="usernames__product-image">
+                    <img
+                      src="https://cdn.salla.sa/DQYwE/vknfwxMv9gXEyMCt5M6hCQOZIxj59EOlvKq8f2Gl.jpg"
+                      alt={product.title}
+                      className="usernames__main-image"
+                    />
+                  </div>
+                  <div className="usernames__product-logo">
+                    <span className="usernames__product-logo-letter">Z</span>
+                  </div>
+                  <span className="usernames__category-icon">{product.icon}</span>
+                  <div className="usernames__product-line"></div>
+                  <h3 className="usernames__product-subtitle">{product.category}</h3>
+                  <span className="usernames__star"><CiStar /></span>
+                  <span className="usernames__badge">{product.badge}</span>
                 </div>
                 <div className="usernames__product-content">
                   <h4 className="usernames__product-title">{product.title}</h4>
                   <p className="usernames__product-price">{product.price}</p>
                   <div className="usernames__product-actions">
-                    <button className="usernames__favorite-btn">❤️</button>
-                    <button className="usernames__add-to-cart">🛒</button>
+                    <button className="usernames__favorite-btn" onClick={handleFavoriteClick}>
+                      <IoIosHeartEmpty />
+                    </button>
+                    <button className="usernames__add-to-cart">
+                      <PiShoppingBag />
+                      إضافة للسلة
+                    </button>
                   </div>
                 </div>
               </div>
@@ -193,7 +219,7 @@ const Usernames = memo(() => {
                     {reviews.map((review) => (
                       <div key={review.id} className="usernames__review-card">
                         <div className="usernames__review-rating">
-                          <span className="usernames__star">⭐</span>
+                          <span className="usernames__star"><CiStar /></span>
                           <span className="usernames__rating-number">{review.rating}</span>
                         </div>
                         

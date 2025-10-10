@@ -112,10 +112,18 @@
   border-radius: 4px;
 }
 
+/* Disable divider for specific headings */
+.no-divider::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+}
+
 @keyframes divider-move {
   0% { background-position: 0% 0; }
   100% { background-position: 200% 0; }
 }
+
 
 .section p {
   font-size: 1.1rem;

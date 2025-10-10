@@ -1,6 +1,7 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { memo, useState } from 'react';
 import { HiArrowSmallLeft } from "react-icons/hi2";
 import { HiArrowSmallRight } from "react-icons/hi2";
+import { CiStar } from "react-icons/ci";
 import './ReviewsSlider.css';
 
 const ReviewsSlider = memo(function ReviewsSlider() {
@@ -10,7 +11,7 @@ const ReviewsSlider = memo(function ReviewsSlider() {
       name: 'Osama Aljohani',
       date: '08/16/2024',
       rating: 5,
-      avatar: '👨',
+      avatar: 'https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png',
       comment: 'خدمة ممتازة جدا سريعة ومصداقية في التعامل جزاكم الله خيرا'
     },
     {
@@ -18,7 +19,7 @@ const ReviewsSlider = memo(function ReviewsSlider() {
       name: 'نورة لافي',
       date: '09/07/2023',
       rating: 5,
-      avatar: '👩',
+      avatar: 'https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png',
       comment: 'صامل و سريع و مصداقيية . ووقوفهم موثوق يفتح التقيبير'
     },
     {
@@ -26,7 +27,7 @@ const ReviewsSlider = memo(function ReviewsSlider() {
       name: 'Aboubakr Abdellah',
       date: '05/13/2024',
       rating: 5,
-      avatar: '👨',
+      avatar: 'https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png',
       comment: 'متعتكوون ودا جدا سريع ومصداقية في التعامل جزاكم الله خيرا'
     },
     {
@@ -34,7 +35,7 @@ const ReviewsSlider = memo(function ReviewsSlider() {
       name: 'سارة محمد',
       date: '07/20/2024',
       rating: 5,
-      avatar: '👩',
+      avatar: 'https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png',
       comment: 'خدمة رائعة وسريعة جداً، أنصح بالتعامل معهم بشدة'
     },
     {
@@ -42,16 +43,16 @@ const ReviewsSlider = memo(function ReviewsSlider() {
       name: 'Ahmed Ali',
       date: '06/15/2024',
       rating: 5,
-      avatar: '👨',
+      avatar: 'https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png',
       comment: 'ممتاز جدا والله يعطيهم العافية على الخدمة المميزة'
     }
   ];
 
-  const visible = 3;
   const [index, setIndex] = useState(0);
+  const visible = 3; // عدد الكروت المرئية
   const maxIndex = Math.max(0, reviews.length - visible);
 
-  // Manual navigation functions
+  // Manual navigation - يتحرك كارت واحد
   const nextSlide = () => {
     setIndex((prevIndex) => (prevIndex >= maxIndex ? 0 : prevIndex + 1));
   };
@@ -59,18 +60,6 @@ const ReviewsSlider = memo(function ReviewsSlider() {
   const prevSlide = () => {
     setIndex((prevIndex) => (prevIndex <= 0 ? maxIndex : prevIndex - 1));
   };
-
-  // Auto-play slider
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => {
-        const nextIndex = prevIndex + 1;
-        return nextIndex > maxIndex ? 0 : nextIndex;
-      });
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [maxIndex]);
 
   return (
     <section className="reviews-slider" dir="rtl">
@@ -86,14 +75,16 @@ const ReviewsSlider = memo(function ReviewsSlider() {
               <div key={review.id} className="reviews-slider__card">
                 <div className="reviews-slider__top">
                   <div className="reviews-slider__user">
-                    <div className="reviews-slider__avatar">{review.avatar}</div>
+                    <div className="reviews-slider__avatar">
+                      <img src={review.avatar} alt={review.name} />
+                    </div>
                     <div className="reviews-slider__info">
                       <h4 className="reviews-slider__name">{review.name}</h4>
                       <span className="reviews-slider__date">{review.date}</span>
                     </div>
                   </div>
                   <div className="reviews-slider__rating">
-                    {review.rating} <span className="reviews-slider__star">⭐</span>
+                    <span className="reviews-slider__star"><CiStar /></span> {review.rating}
                   </div>
                 </div>
                 <div className="reviews-slider__quote">"</div>

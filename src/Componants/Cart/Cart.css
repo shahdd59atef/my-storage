@@ -54,10 +54,10 @@
 }
 
 .home-page-button:hover {
-  background: #F7EC06;
+  background: #ffffff;
   color: #1F1F2C;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(247, 236, 6, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {

@@ -1,4 +1,5 @@
 import React, { memo, useState } from 'react';
+import { CiStar } from "react-icons/ci";
 import './SnapchatAds.css';
 
 const SnapchatAds = memo(() => {
@@ -80,7 +81,7 @@ const SnapchatAds = memo(() => {
                     {reviews.map((review) => (
                       <div key={review.id} className="snapchat-ads__review-card">
                         <div className="snapchat-ads__review-rating">
-                          <span className="snapchat-ads__star">⭐</span>
+                          <span className="snapchat-ads__star"><CiStar /></span>
                           <span className="snapchat-ads__rating-number">{review.rating}</span>
                         </div>
                         

@@ -11,7 +11,7 @@
 
 .webdev-slider__title { 
   text-align: center; 
-  font-size: 2rem; 
+  font-size: 30px; 
   font-weight: 900; 
   color: #F7EC06; 
   margin: 0 0 3rem; 
@@ -43,6 +43,27 @@
   position: relative;
 }
 
+/* Scoped scrollbar styling for WebDev slider only (no global UI impact) */
+.webdev-slider__wrapper { 
+  scrollbar-color: #343444 #1F1F2C; /* thumb, track for Firefox */
+  scrollbar-width: thin;
+}
+.webdev-slider__wrapper::-webkit-scrollbar {
+  height: 8px; /* horizontal */
+}
+.webdev-slider__wrapper::-webkit-scrollbar-track {
+  background: #1F1F2C; /* match section background */
+  border-radius: 8px;
+}
+.webdev-slider__wrapper::-webkit-scrollbar-thumb {
+  background: #343444; /* match card color */
+  border-radius: 8px;
+  border: 2px solid #1F1F2C; /* remove any orange/yellow appearance */
+}
+.webdev-slider__wrapper::-webkit-scrollbar-thumb:hover {
+  background: #3d3d56;
+}
+
 /* Controls */
 .webdev-slider__controls { 
   display: flex; 
@@ -54,7 +75,7 @@
 
 .webdev-slider__arrow { 
   background: none;
-  color: #F7EC06;
+  color: #ffffff; /* arrows white */
   border: none; 
   width: 45px; 
   height: 45px; 
@@ -67,7 +88,7 @@
 }
 
 .webdev-slider__arrow:hover { 
-  color: #ffffff;
+  color: #ffffff; /* keep white on hover */
   transform: scale(1.15);
 }
 
@@ -84,10 +105,10 @@
   width: 10px; 
   height: 10px; 
   border-radius: 50%; 
-  border: 2px solid #F7EC06; 
+  border: 2px solid #ffffff; /* white instead of orange */
   background: transparent; 
   cursor: pointer; 
-  opacity: .5;
+  opacity: .7;
   transition: all 0.3s ease;
   padding: 0;
 }
@@ -98,7 +119,7 @@
 }
 
 .webdev-slider__dot.is-active { 
-  background: #F7EC06;
+  background: #ffffff; /* active dot white */
   opacity: 1;
   transform: scale(1.2);
 }
@@ -209,7 +230,7 @@
 }
 
 .webdev-slider__favorite-btn:hover {
-  background: #F7EC06;
+  background: #ffffff;
   color: #343444;
 }
 
@@ -235,7 +256,7 @@
 }
 
 .webdev-slider__add-to-cart:hover {
-  background: #F7EC06;
+  background: #ffffff;
   color: #343444;
 }
 
@@ -278,15 +299,16 @@
 }
 
 .webdev-slider__favorite-btn:hover {
-  color: #F7EC06;
-  background: rgba(247, 236, 6, 0.1);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
   transform: scale(1.1);
 }
 
+
 .webdev-slider__add-to-cart {
-  background: #F7EC06;
-  color: #000000;
-  border: none;
+  background: #343444; /* match card background */
+  color: #ffffff;
+  border: 2px solid #F7EC06;
   padding: 0.75rem 1rem;
   border-radius: 8px;
   font-size: 0.9rem;
@@ -301,9 +323,10 @@
 }
 
 .webdev-slider__add-to-cart:hover {
-  background: #e6d505;
+  background: #3d3d56; /* subtle lift while keeping theme */
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(247, 236, 6, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
 
 @media (max-width: 1024px){

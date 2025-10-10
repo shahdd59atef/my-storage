@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import ProductCard from './Componants/ProductCard/ProductCard';
 import Navbar from './Componants/Navbar/Navbar';
 import CustomCursor from './Componants/CustomCursor/CustomCursor';
 import HeroSlider from './Componants/HeroSlider/HeroSlider';
@@ -95,9 +96,30 @@ function PageHome(){
           ]}
         />
       </div>
-      <section className="section" style={{ background: '#ffffff', padding: 0 }}>
+      
+      <section className="section" style={{ background: '#343444', padding: 0 }}>
         <div id="services-anchor"></div>
         <ServicesSlider />
+      </section>
+      
+      {/* Featured Service Section */}
+      <section className="section" style={{ 
+        background: '#1F1F2C', 
+        padding: '4rem 0',
+        textAlign: 'center'
+      }}>
+        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' }}>
+          <h2 style={{ 
+            color: '#ffffff', 
+            fontSize: '2.5rem', 
+            fontWeight: 'bold', 
+            marginBottom: '1rem'
+          }}>
+            خدمة مميزة
+          </h2>
+          
+          <ProductCard />
+        </div>
       </section>
       {/* Featured service after services */}
       

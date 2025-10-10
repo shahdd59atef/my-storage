@@ -31,7 +31,15 @@ const BlogPost = memo(() => {
     }
   };
 
-  const post = blogData[id] || blogData[1];
+  const defaultPost = {
+    title: '',
+    subtitle: '',
+    bgColor: '#000000',
+    icon: '',
+    content: '',
+    relatedPosts: []
+  };
+  const post = blogData[id] || defaultPost;
 
   return (
     <div className="blog-post">
@@ -42,7 +50,7 @@ const BlogPost = memo(() => {
           <aside className="blog-post__sidebar">
             <h3 className="blog-post__sidebar-title">مقالات ذات صلة</h3>
             <div className="blog-post__related">
-              {post.relatedPosts.map((relatedPost) => (
+              {(post.relatedPosts || []).map((relatedPost) => (
                 <a 
                   key={relatedPost.id} 
                   href={`/blog/${relatedPost.id}`}

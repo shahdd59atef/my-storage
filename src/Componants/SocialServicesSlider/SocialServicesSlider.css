@@ -17,7 +17,7 @@
 }
 
 .social-services__title { 
-  font-size: 2rem; 
+  font-size: 30px; 
   font-weight: 900; 
   color: #ffffff; 
   margin: 0;
@@ -348,7 +348,7 @@
 }
 
 .social-services__favorite-btn:hover {
-  background: #F7EC06;
+  background: #ffffff;
   color: #343444;
 }
 
@@ -374,7 +374,7 @@
 }
 
 .social-services__add-to-cart:hover {
-  background: #F7EC06;
+  background: #ffffff;
   color: #343444;
 }
 

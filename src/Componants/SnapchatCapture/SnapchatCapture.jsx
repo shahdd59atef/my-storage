@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react';
 import { IoIosHeartEmpty } from "react-icons/io";
 import { PiShoppingBag } from "react-icons/pi";
+import { CiStar } from "react-icons/ci";
 import './SnapchatCapture.css';
 
 const SnapchatCapture = memo(() => {
@@ -187,7 +188,7 @@ const SnapchatCapture = memo(() => {
                     {reviews.map((review) => (
                       <div key={review.id} className="snapchat-capture__review-card">
                         <div className="snapchat-capture__review-rating">
-                          <span className="snapchat-capture__star">⭐</span>
+                          <span className="snapchat-capture__star"><CiStar /></span>
                           <span className="snapchat-capture__rating-number">{review.rating}</span>
                         </div>
                         

@@ -1,4 +1,5 @@
 import React, { memo } from 'react';
+import { CiStar } from "react-icons/ci";
 import './AllReviews.css';
 
 const AllReviews = memo(() => {
@@ -8,7 +9,7 @@ const AllReviews = memo(() => {
       name: 'محمد العتيبي',
       date: '15/03/2024',
       rating: 5,
-      avatar: '👨',
+      avatar: 'https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png',
       comment: 'خدمة ممتازة وسريعة جداً. حصلت على المتابعين في وقت قياسي'
     },
     {
@@ -16,7 +17,7 @@ const AllReviews = memo(() => {
       name: 'سارة القحطاني',
       date: '12/03/2024',
       rating: 5,
-      avatar: '👩',
+      avatar: 'https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png',
       comment: 'احترافية عالية في التعامل والنتائج مبهرة'
     },
     {
@@ -24,7 +25,7 @@ const AllReviews = memo(() => {
       name: 'عبدالله السعدون',
       date: '10/03/2024',
       rating: 5,
-      avatar: '👨',
+      avatar: 'https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png',
       comment: 'متعتكوون ودا جدا سريع ومصداقية في التعامل جزاكم الله خيرا'
     },
     {
@@ -32,7 +33,7 @@ const AllReviews = memo(() => {
       name: 'نورة الشمري',
       date: '08/03/2024',
       rating: 5,
-      avatar: '👩',
+      avatar: 'https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png',
       comment: 'أفضل موقع للخدمات الرقمية، ننصح فيه بقوة'
     },
     {
@@ -40,7 +41,7 @@ const AllReviews = memo(() => {
       name: 'خالد الدوسري',
       date: '05/03/2024',
       rating: 5,
-      avatar: '👨',
+      avatar: 'https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png',
       comment: 'خدمة التوثيق ممتازة وحصلت على العلامة الزرقاء'
     },
     {
@@ -48,7 +49,7 @@ const AllReviews = memo(() => {
       name: 'فاطمة المطيري',
       date: '02/03/2024',
       rating: 5,
-      avatar: '👩',
+      avatar: 'https://cdn.assets.salla.network/prod/stores/themes/default/assets/images/avatar_male.png',
       comment: 'اليوزرات مميزة والأسعار معقولة جداً'
     }
   ];
@@ -67,14 +68,16 @@ const AllReviews = memo(() => {
               <div key={review.id} className="all-reviews__card">
                 <div className="all-reviews__top">
                   <div className="all-reviews__user">
-                    <div className="all-reviews__avatar">{review.avatar}</div>
+                    <div className="all-reviews__avatar">
+                      <img src={review.avatar} alt={review.name} />
+                    </div>
                     <div className="all-reviews__info">
                       <h4 className="all-reviews__name">{review.name}</h4>
                       <span className="all-reviews__date">{review.date}</span>
                     </div>
                   </div>
                   <div className="all-reviews__rating">
-                    {review.rating} <span className="all-reviews__star">⭐</span>
+                    <span className="all-reviews__star"><CiStar /></span> {review.rating}
                   </div>
                 </div>
                 <div className="all-reviews__quote">"</div>
@@ -92,6 +95,10 @@ const AllReviews = memo(() => {
 AllReviews.displayName = 'AllReviews';
 
 export default AllReviews;
+
+
+
+
 
 
 

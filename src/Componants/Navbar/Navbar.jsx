@@ -88,7 +88,10 @@ const Navbar = memo(() => {
                   onClick={toggleLoginModal}
                 />
                 <MdDarkMode className="text-gray-500 text-xl cursor-pointer hover:text-[#F7EC06] transition-colors duration-300" />
-                <PiShoppingBag className="text-gray-500 text-xl cursor-pointer hover:text-[#F7EC06] transition-colors duration-300" />
+                <PiShoppingBag 
+                  className="text-gray-500 text-xl cursor-pointer hover:text-[#F7EC06] transition-colors duration-300" 
+                  onClick={() => window.location.href = '/cart'}
+                />
               </div>
               <div className="flex items-center gap-4">
                 <ul className="flex items-center gap-2.5 list-none m-0 p-0 flex-row-reverse">
@@ -244,10 +247,10 @@ const Navbar = memo(() => {
                           يوزرات سناب شات
                         </a>
                         <div className="flex flex-col gap-1 mt-1 mr-6">
-                          <a href="/username-3char" className="block py-1 px-2 text-gray-300 text-xs font-semibold rounded-md transition-all duration-200 hover:bg-[rgba(247,236,6,0.1)] hover:text-[#F7EC06] text-left bg-[#f8f9fa]">
+                          <a href="/username-3char" className="block py-1 px-2 text-gray-300 text-xs font-semibold rounded-md transition-all duration-200 hover:bg-[rgba(247,236,6,0.1)] hover:text-[#F7EC06] text-left">
                             يوزر ثلاثي
                           </a>
-                          <a href="/username-4char" className="block py-1 px-2 text-gray-300 text-xs font-semibold rounded-md transition-all duration-200 hover:bg-[rgba(247,236,6,0.1)] hover:text-[#F7EC06] text-left bg-[#f8f9fa]">
+                          <a href="/username-4char" className="block py-1 px-2 text-gray-300 text-xs font-semibold rounded-md transition-all duration-200 hover:bg-[rgba(247,236,6,0.1)] hover:text-[#F7EC06] text-left">
                             يوزر رباعي
                           </a>
                         </div>

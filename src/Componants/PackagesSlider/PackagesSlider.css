@@ -11,7 +11,7 @@
 
 .packages-slider__title { 
   text-align: center; 
-  font-size: 2rem; 
+  font-size: 30px; 
   font-weight: 900; 
   color: #F7EC06; 
   margin: 0 0 3rem; 
@@ -207,7 +207,7 @@
 }
 
 .packages-slider__favorite-btn:hover {
-  background: #F7EC06;
+  background: #ffffff;
   color: #343444;
 }
 
@@ -233,7 +233,7 @@
 }
 
 .packages-slider__add-to-cart:hover {
-  background: #F7EC06;
+  background: #ffffff;
   color: #343444;
 }
 

@@ -1,6 +1,7 @@
 import React, { memo, useState } from 'react';
 import { IoIosHeartEmpty } from "react-icons/io";
 import { PiShoppingBag } from "react-icons/pi";
+import { CiStar } from "react-icons/ci";
 import './AdsCampaigns.css';
 
 const AdsCampaigns = memo(() => {
@@ -21,7 +22,7 @@ const AdsCampaigns = memo(() => {
     {
       id: 1,
       title: 'إدارة حملات سناب شات',
-      price: '800 ريال',
+      price: 'ريال 100',
       category: 'سناب شات',
       icon: '👻',
       badge: '1★'
@@ -29,7 +30,7 @@ const AdsCampaigns = memo(() => {
     {
       id: 2,
       title: 'إدارة حملات انستقرام',
-      price: '750 ريال',
+      price: 'ريال 100',
       category: 'انستقرام',
       icon: '📷',
       badge: '1★'
@@ -37,7 +38,7 @@ const AdsCampaigns = memo(() => {
     {
       id: 3,
       title: 'إدارة حملات تيك توك',
-      price: '700 ريال',
+      price: 'ريال 100',
       category: 'تيك توك',
       icon: '🎵',
       badge: '1★'
@@ -45,7 +46,7 @@ const AdsCampaigns = memo(() => {
     {
       id: 4,
       title: 'إدارة حملات جوجل',
-      price: '900 ريال',
+      price: 'ريال 100',
       category: 'جوجل',
       icon: '🔍',
       badge: '1★'
@@ -154,13 +155,20 @@ const AdsCampaigns = memo(() => {
             {products.map((product) => (
               <div key={product.id} className="ads-campaigns__product-card">
                 <div className="ads-campaigns__product-header">
+                  <div className="ads-campaigns__product-image">
+                    <img
+                      src="https://cdn.salla.sa/DQYwE/vknfwxMv9gXEyMCt5M6hCQOZIxj59EOlvKq8f2Gl.jpg"
+                      alt={product.title}
+                      className="ads-campaigns__main-image"
+                    />
+                  </div>
                   <div className="ads-campaigns__product-logo">
                     <span className="ads-campaigns__product-logo-letter">Z</span>
                   </div>
                   <span className="ads-campaigns__category-icon">{product.icon}</span>
                   <div className="ads-campaigns__product-line"></div>
                   <h3 className="ads-campaigns__product-subtitle">{product.category}</h3>
-                  <span className="ads-campaigns__star">⭐</span>
+                  <span className="ads-campaigns__star"><CiStar /></span>
                   <span className="ads-campaigns__badge">{product.badge}</span>
                 </div>
                 <div className="ads-campaigns__product-content">
@@ -174,7 +182,6 @@ const AdsCampaigns = memo(() => {
                       <PiShoppingBag />
                       إضافة للسلة
                     </button>
-                    <button className="ads-campaigns__contact-btn">راسلنا</button>
                   </div>
                 </div>
               </div>
@@ -213,7 +220,7 @@ const AdsCampaigns = memo(() => {
                     {reviews.map((review) => (
                       <div key={review.id} className="ads-campaigns__review-card">
                         <div className="ads-campaigns__review-rating">
-                          <span className="ads-campaigns__star">⭐</span>
+                          <span className="ads-campaigns__star"><CiStar /></span>
                           <span className="ads-campaigns__rating-number">{review.rating}</span>
                         </div>
                         

@@ -1,7 +1,7 @@
 /* Blog Styles */
 .blog {
   min-height: 100vh;
-  padding: 150px 2rem 4rem;
+  padding: 100px 2rem 4rem; /* مباشرة تحت الـ navbar الثابت */
   background-color: #1f1f2c;
   color: #333;
 }
@@ -12,20 +12,47 @@
 }
 
 .blog__title {
-  font-size: 2.5rem;
+  /* Exact specifications as provided */
+  color: #FFFFFF;
+  background-color: transparent; /* RGBA(0, 0, 0, 0) */
+  font-family: DINNextLTArabic-Regular, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 30px;
+  line-height: 36px;
+  vertical-align: baseline;
+  letter-spacing: normal;
+  word-spacing: 0px;
+  margin: 0px 0px 16px;
+  padding: 0px;
   font-weight: 700;
-  color: #F7EC06;
-  margin: 0;
+  font-style: normal;
+  font-variant: normal;
+  font-kerning: auto;
+  font-optical-sizing: auto;
+  font-stretch: 100%;
+  font-variation-settings: normal;
+  font-feature-settings: normal;
+  text-transform: none;
+  text-decoration: none;
+  text-align: center;
+  text-indent: 0px;
+  position: relative;
+}
+
+/* Animated underline directly under the blog title */
+.blog__title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  margin: 8px auto 0;
+  background: linear-gradient(90deg, transparent, #F7EC06, transparent);
+  background-size: 200% 100%;
+  animation: slideUnderline 2s ease-in-out infinite;
+  border-radius: 2px;
 }
 
 .blog__title-underline {
-  width: 100px;
-  height: 4px;
-  background: linear-gradient(90deg, #F7EC06, #F7EC06);
-  margin: 1rem auto;
-  border-radius: 2px;
-  animation: slideUnderline 2s ease-in-out infinite;
-  background-size: 200% 100%;
+  display: none !important; /* إلغاء الخط الثابت أسفل العنوان */
 }
 
 @keyframes slideUnderline {
@@ -41,7 +68,7 @@
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* ثابت 3 كروت في الصف */
   gap: 2rem;
 }
 
@@ -63,19 +90,23 @@
 
 .blog__card-header {
   position: relative;
-  height: 200px;
+  height: 220px; /* increased height slightly */
   overflow: hidden;
 }
 
 .blog__card-header-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 16px; /* مسافة واضحة من أعلى البوكس */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%; /* أصغر من البوكس */
+  max-height: calc(100% - 32px); /* تضمن مسافة أعلى وأسفل داخل البوكس */
+  height: auto;
+  object-fit: contain; /* لا تتخطى حدود البوكس */
+  border-radius: 12px;
   z-index: 1;
 }
+
 
 
 .blog__card-content {
@@ -104,21 +135,23 @@
 }
 
 .blog__card-button {
-  width: 100%;
-  padding: 0.75rem 1.5rem;
-  background: transparent;
-  border: 2px solid #F7EC06;
-  border-radius: 8px;
-  color: #F7EC06;
-  font-size: 0.95rem;
+  width: auto; /* أصغر ولا تملأ العرض */
+  align-self: flex-end; /* تظهر على الجانب (يمين في التخطيط الحالي) */
+  padding: 0.5rem 0.9rem; /* تصغير إضافي */
+  background: #343444; /* نفس لون الكارت */
+  border: 1px solid #ffffff; /* إطار أبيض */
+  border-radius: 12px; /* زوايا أوضح */
+  color: #ffffff; /* خط أبيض */
+  font-size: 0.88rem; /* أصغر قليلاً */
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .blog__card-button:hover {
-  background: #F7EC06;
-  color: #ffffff;
+  background: #ffffff; /* أبيض عند المرور */
+  color: #1F1F2C; /* الخط غامق */
+  border-color: #ffffff; /* يظل الإطار أبيض */
   transform: translateY(-2px);
 }
 
@@ -143,9 +176,10 @@
 }
 
 .blog__load-more-btn:hover {
-  background: #ff8555;
+  background: #ffffff;
+  color: #1F1F2C;
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(247, 236, 6, 0.4);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 .blog__load-more-btn:active {
@@ -163,7 +197,7 @@
   }
 
   .blog__grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr); /* لو الشاشة أصغر: صفين */
     gap: 1.8rem;
   }
 }
@@ -188,7 +222,7 @@
   }
 
   .blog__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* موبايل: كرت واحد في الصف */
     gap: 1.5rem;
     max-width: 500px;
     margin: 0 auto;
@@ -199,7 +233,7 @@
   }
 
   .blog__card-header {
-    height: 170px;
+    height: 180px;
   }
 
   .blog__card-logo {
@@ -285,7 +319,7 @@
   }
 
   .blog__card-header {
-    height: 150px;
+    height: 160px;
   }
 
   .blog__card-logo {
@@ -363,7 +397,7 @@
   }
 
   .blog__card-header {
-    height: 140px;
+    height: 150px;
   }
 
   .blog__card-icon {

@@ -45,8 +45,8 @@
 }
 
 .snapchat-accounts__sort-btn:hover {
-  color: #F7EC06;
-  background: rgba(247, 236, 6, 0.1);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .snapchat-accounts__dropdown-arrow {
@@ -100,8 +100,8 @@
 }
 
 .snapchat-accounts__dropdown-item:hover {
-  background: rgba(247, 236, 6, 0.1);
-  color: #F7EC06;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
   padding-right: 1.5rem;
 }
 
@@ -134,7 +134,7 @@
 }
 
 .snapchat-accounts__counter-text:hover {
-  color: #F7EC06;
+  color: #ffffff;
 }
 
 .snapchat-accounts__products {
@@ -297,7 +297,7 @@
 }
 
 .snapchat-accounts__favorite-btn:hover {
-  background: rgba(247, 236, 6, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   transform: scale(1.1);
 }
 
@@ -320,7 +320,7 @@
 }
 
 .snapchat-accounts__add-to-cart:hover {
-  background: #F7EC06;
+  background: #ffffff;
   color: #1F1F2C;
   transform: translateY(-2px);
 }
@@ -350,7 +350,7 @@
 .snapchat-accounts__reviews {
   margin-top: 4rem;
   padding: 3rem 0;
-  background: #1F1F2C !important;
+  background: #343444 !important;
   border-radius: 20px;
   border: 1px solid rgba(247, 236, 6, 0.1);
 }
@@ -362,7 +362,7 @@
 
 .snapchat-accounts__reviews-title {
   color: #F7EC06;
-  font-size: 2rem;
+  font-size: 30px;
   font-weight: bold;
   margin: 0;
   position: relative;
@@ -439,7 +439,7 @@
   padding: 1.5rem;
   transition: all 0.3s ease;
   position: relative;
-  border: 1px solid rgba(247, 236, 6, 0.1);
+  border: none;
   box-shadow: 0 4px 15px rgba(247, 236, 6, 0.1);
   min-width: 300px;
   flex-shrink: 0;
@@ -453,9 +453,14 @@
 }
 
 .snapchat-accounts__rating-number {
-  color: #333333;
+  color: #ffffff;
   font-size: 1rem;
   font-weight: bold;
+}
+
+.snapchat-accounts__star {
+  color: #FACA15 !important;
+  display: inline-block !important;
 }
 
 .snapchat-accounts__reviewer {

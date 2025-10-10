@@ -1,19 +1,27 @@
 import React, { memo, useState } from 'react';
 import { IoIosHeartEmpty } from "react-icons/io";
 import { PiShoppingBag } from "react-icons/pi";
+import { CiStar } from "react-icons/ci";
 import './SocialMediaServices.css';
 
 const SocialMediaServices = memo(() => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [selectedSort, setSelectedSort] = useState('ترتيب مقترحاتنا');
-  const [currentProductIndex, setCurrentProductIndex] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleFavoriteClick = () => {
+    if (!isLoggedIn) {
+      alert('يرجى تسجيل الدخول للاستفادة من هذه الميزة');
+      return;
+    }
+  };
   
   const products = [
     {
       id: 1,
       title: 'خدمات سناب شات الشاملة',
-      price: '300 ريال',
+      price: 'ريال 100',
       category: 'سناب شات',
       icon: '👻',
       badge: '1★'
@@ -21,7 +29,7 @@ const SocialMediaServices = memo(() => {
     {
       id: 2,
       title: 'خدمات انستقرام المتكاملة',
-      price: '250 ريال',
+      price: 'ريال 100',
       category: 'انستقرام',
       icon: '📷',
       badge: '1★'
@@ -29,7 +37,7 @@ const SocialMediaServices = memo(() => {
     {
       id: 3,
       title: 'خدمات تيك توك المميزة',
-      price: '200 ريال',
+      price: 'ريال 100',
       category: 'تيك توك',
       icon: '🎵',
       badge: '1★'
@@ -37,7 +45,7 @@ const SocialMediaServices = memo(() => {
     {
       id: 4,
       title: 'خدمات تويتر الاحترافية',
-      price: '220 ريال',
+      price: 'ريال 100',
       category: 'تويتر',
       icon: '🐦',
       badge: '1★'
@@ -78,19 +86,6 @@ const SocialMediaServices = memo(() => {
       rating: 5
     }
   ];
-
-  // Products Slider navigation functions
-  const nextProduct = () => {
-    setCurrentProductIndex((prev) => (prev + 1) % products.length);
-  };
-
-  const prevProduct = () => {
-    setCurrentProductIndex((prev) => (prev - 1 + products.length) % products.length);
-  };
-
-  const goToProduct = (index) => {
-    setCurrentProductIndex(index);
-  };
 
   // Reviews Slider navigation functions
   const nextReview = () => {
@@ -155,68 +150,42 @@ const SocialMediaServices = memo(() => {
             </div>
           </div>
           
-          {/* Products Slider */}
-          <div className="social-media-services__slider-wrapper">
-            <button 
-              className="social-media-services__products-slider-btn social-media-services__products-slider-btn--prev"
-              onClick={prevProduct}
-              aria-label="السابق"
-            >
-              ‹
-            </button>
-            
-            <button 
-              className="social-media-services__products-slider-btn social-media-services__products-slider-btn--next"
-              onClick={nextProduct}
-              aria-label="التالي"
-            >
-              ›
-            </button>
-
-            <div className="social-media-services__products-slider">
-              <div 
-                className="social-media-services__products-track"
-                style={{ transform: `translateX(${currentProductIndex * -100}%)` }}
-              >
-                {products.map((product) => (
-                  <div key={product.id} className="social-media-services__product-card">
-                    <div className="social-media-services__product-header">
-                      <img
-                        src="https://cdn.salla.sa/DQYwE/60e65ac0-11ff-4c02-a51d-1df33680522d-500x375.10584250635-jfWA4k2ZTz1KIraipWtBoxrfuWrIO1Npoq146dPR.jpg"
-                        alt="خدمة"
-                        className="social-media-services__header-image"
-                      />
-                    </div>
-                    <div className="social-media-services__product-content">
-                      <h4 className="social-media-services__product-title">{product.title}</h4>
-                      <p className="social-media-services__product-price">{product.price}</p>
-                      <div className="social-media-services__product-actions">
-                        <button className="social-media-services__favorite-btn">
-                          <IoIosHeartEmpty />
-                        </button>
-                        <button className="social-media-services__add-to-cart">
-                          <PiShoppingBag />
-                          إضافة للسلة
-                        </button>
-                        <button className="social-media-services__contact-btn">راسلنا</button>
-                      </div>
-                    </div>
+          {/* Products Grid */}
+          <div className="social-media-services__products">
+            {products.map((product) => (
+              <div key={product.id} className="social-media-services__product-card">
+                <div className="social-media-services__product-header">
+                  <div className="social-media-services__product-image">
+                    <img
+                      src="https://cdn.salla.sa/DQYwE/vknfwxMv9gXEyMCt5M6hCQOZIxj59EOlvKq8f2Gl.jpg"
+                      alt={product.title}
+                      className="social-media-services__main-image"
+                    />
                   </div>
-                ))}
+                  <div className="social-media-services__product-logo">
+                    <span className="social-media-services__product-logo-letter">Z</span>
+                  </div>
+                  <span className="social-media-services__category-icon">{product.icon}</span>
+                  <div className="social-media-services__product-line"></div>
+                  <h3 className="social-media-services__product-subtitle">{product.category}</h3>
+                  <span className="social-media-services__star"><CiStar /></span>
+                  <span className="social-media-services__badge">{product.badge}</span>
+                </div>
+                <div className="social-media-services__product-content">
+                  <h4 className="social-media-services__product-title">{product.title}</h4>
+                  <p className="social-media-services__product-price">{product.price}</p>
+                  <div className="social-media-services__product-actions">
+                    <button className="social-media-services__favorite-btn" onClick={handleFavoriteClick}>
+                      <IoIosHeartEmpty />
+                    </button>
+                    <button className="social-media-services__add-to-cart">
+                      <PiShoppingBag />
+                      إضافة للسلة
+                    </button>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            {/* Dots Indicators */}
-            <div className="social-media-services__dots">
-              {products.map((_, index) => (
-                <button
-                  key={index}
-                  className={`social-media-services__dot ${index === currentProductIndex ? 'active' : ''}`}
-                  onClick={() => goToProduct(index)}
-                  aria-label={`الانتقال للمنتج ${index + 1}`}
-                />
-              ))}
-            </div>
+            ))}
           </div>
           
           {/* Customer Reviews Section */}
@@ -251,7 +220,7 @@ const SocialMediaServices = memo(() => {
                     {reviews.map((review) => (
                       <div key={review.id} className="social-media-services__review-card">
                         <div className="social-media-services__review-rating">
-                          <span className="social-media-services__star">⭐</span>
+                          <span className="social-media-services__star"><CiStar /></span>
                           <span className="social-media-services__rating-number">{review.rating}</span>
                         </div>
                         
