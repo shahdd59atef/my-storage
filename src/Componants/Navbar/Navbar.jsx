@@ -58,24 +58,24 @@ const Navbar = memo(() => {
       <div className="max-w-[1000px] mx-auto px-4 flex flex-col gap-1">
         {/* Mobile/Tablet Layout */}
         <div className="flex items-center justify-between w-full md:hidden py-3 px-4">
-          {/* Left side - Moon icon */}
+          {/* Left side - Moon icon only */}
           <div className="flex items-center">
             <MdDarkMode className="text-white text-lg cursor-pointer hover:text-[#F7EC06] transition-colors duration-300" />
           </div>
 
-          {/* Center - Logo and text */}
+          {/* Center - Logo */}
           <div className="flex flex-col items-center">
             <img 
               src="https://cdn.salla.sa/cdn-cgi/image/fit=scale-down,width=400,height=400,onerror=redirect,format=auto/DQYwE/wyWnbCpitH0YrIqGM6cmhukxXFJX8zWn8RnN3DLW.png" 
               alt="Logo" 
-              className="h-8 w-auto mb-1"
+              className="h-8 w-auto"
             />
-            <span className="text-white text-xs font-medium text-center">عز للخدمات التسويقية</span>
           </div>
 
           {/* Right side - Hamburger menu */}
           <div className="flex items-center">
             <button
+              id="hamburger-menu-btn"
               className={`flex flex-col gap-[3px] bg-none border-none cursor-pointer p-1 transition-all duration-300 ${isMenuOpen ? 'active' : ''}`}
               onClick={toggleMenu}
               aria-label="Toggle menu"
@@ -357,20 +357,20 @@ const Navbar = memo(() => {
 
         {/* Search Modal */}
         {showSearchBar && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-start justify-center pt-32">
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-start justify-center pt-20 md:pt-32">
             <div className="relative w-full max-w-2xl mx-4">
               <div className="relative">
                 <input
                   type="text"
                   placeholder="ادخل كلمة البحث"
-                  className="w-full bg-white text-gray-800 px-6 py-4 pr-16 rounded-xl border border-gray-200 focus:outline-none focus:border-[#F7EC06] focus:ring-2 focus:ring-[#F7EC06] focus:ring-opacity-20 text-lg shadow-lg"
+                  className="w-full bg-white text-gray-800 px-4 py-3 pr-12 md:px-6 md:py-4 md:pr-16 rounded-xl border border-gray-200 focus:outline-none focus:border-[#F7EC06] focus:ring-2 focus:ring-[#F7EC06] focus:ring-opacity-20 text-base md:text-lg shadow-lg"
                   dir="rtl"
                   autoFocus
                 />
-                <CiSearch className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-400 text-2xl" />
+                <CiSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl md:text-2xl" />
                 <button
                   onClick={toggleSearchBar}
-                  className="absolute right-6 top-1/2 transform -translate-y-1/2 text-gray-400 text-2xl hover:text-gray-600 transition-colors duration-200"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl md:text-2xl hover:text-gray-600 transition-colors duration-200"
                 >
                   ✕
                 </button>

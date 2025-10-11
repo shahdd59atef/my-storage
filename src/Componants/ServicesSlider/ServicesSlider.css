@@ -454,6 +454,12 @@
     flex-wrap: nowrap;
     justify-content: center;
     overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .services__track::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
   
   .services__item {
@@ -537,6 +543,12 @@
     flex-wrap: nowrap;
     justify-content: center;
     overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .services__track::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
   
   .services__item {
@@ -622,6 +634,12 @@
     flex-wrap: nowrap;
     justify-content: center;
     overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .services__track::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
   }
 
   .services__item {

@@ -99,28 +99,6 @@
   border: 2px solid #1F1F2C;
 }
 
-/* Home with WhatsApp */
-.bottom-navbar__home-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bottom-navbar__whatsapp-icon {
-  position: absolute;
-  top: -0.25rem;
-  right: -0.25rem;
-  font-size: 0.8rem;
-  color: #25D366;
-  background: #1F1F2C;
-  border-radius: 50%;
-  width: 1rem;
-  height: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 /* Show only on mobile devices */
 @media (max-width: 768px) {
@@ -159,11 +137,6 @@
     font-size: 0.55rem;
   }
 
-  .bottom-navbar__whatsapp-icon {
-    font-size: 0.7rem;
-    width: 0.9rem;
-    height: 0.9rem;
-  }
 }
 
 @media (max-width: 360px) {
@@ -197,9 +170,4 @@
     font-size: 0.5rem;
   }
 
-  .bottom-navbar__whatsapp-icon {
-    font-size: 0.65rem;
-    width: 0.8rem;
-    height: 0.8rem;
-  }
 }
