@@ -121,10 +121,12 @@ const Navbar = memo(() => {
             <div className="w-full flex justify-between items-center pt-1">
               <div className="flex items-center gap-6 flex-row-reverse mt-10 mr-25">
                 <CiSearch 
+                  id="navbar-search-icon"
                   className="text-gray-500 text-xl cursor-pointer hover:text-[#F7EC06] transition-colors duration-300" 
                   onClick={toggleSearchBar}
                 />
                 <IoPersonOutline 
+                  id="navbar-account-icon"
                   className="text-gray-500 text-xl cursor-pointer hover:text-[#F7EC06] transition-colors duration-300" 
                   onClick={toggleLoginModal}
                 />

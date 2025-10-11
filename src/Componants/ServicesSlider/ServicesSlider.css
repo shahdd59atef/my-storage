@@ -1,6 +1,6 @@
 .services { padding: 3rem 0 4rem; background: #1F1F2C; }
 .services__container { max-width: 100%; width: 100%; margin: 0; padding: 0; }
-.services__title { text-align: center; font-size: 30px; font-weight: 900; color: #ffffff; margin: 0 0 2.5rem; position: relative; }
+.services__title { text-align: center; font-size: 30px; font-weight: 800; color: #FFFFFF; margin: 0 0 10px; position: relative; }
 .services__title::after { content: ''; width: 70px; height: 4px; background: linear-gradient(90deg, transparent, #F7EC06, transparent); background-size: 200% 100%; animation: divider-move 1.8s linear infinite; border-radius: 4px; position: absolute; left: 50%; transform: translateX(-50%); bottom: -10px; }
 
 @keyframes divider-move {
@@ -20,12 +20,12 @@
 }
 
 .services__track { 
-  display: grid; 
-  grid-auto-flow: column; 
-  grid-auto-columns: calc((100% - 2 * 1.5rem) / 3); 
+  display: flex; 
   gap: 1.5rem; 
   transition: transform .45s cubic-bezier(.4,0,.2,1); 
   padding: 0 2rem; 
+  align-items: center;
+  justify-content: center;
 }
 
 .services__item {
@@ -45,13 +45,14 @@
   display: flex; 
   align-items: center; 
   justify-content: center; 
-  width: 100%;
-  aspect-ratio: 1;
+  width: 150px;
+  height: 150px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
   border: none;
+  flex-shrink: 0;
 }
 
 .services__img {
@@ -396,8 +397,9 @@
   }
 
   .services__title {
-    font-size: 1.6rem;
-    margin-bottom: 2.2rem;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 10px;
   }
 
   .services__title::after {
@@ -406,9 +408,10 @@
   }
 
   .services__track {
-    grid-auto-columns: calc((100% - 2 * 1.25rem) / 3);
     gap: 1.25rem;
     padding: 0 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .services__item {
@@ -416,7 +419,8 @@
   }
 
   .services__card {
-    padding: 0;
+    width: 150px;
+    height: 150px;
   }
 
   .services__label {
@@ -434,8 +438,9 @@
   }
 
   .services__title {
-    font-size: 1.45rem;
-    margin-bottom: 2rem;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 10px;
   }
 
   .services__title::after {
@@ -444,17 +449,21 @@
   }
 
   .services__track {
-    grid-auto-columns: calc((100% - 2 * 1rem) / 3);
-    gap: 1rem;
+    gap: 0.8rem;
     padding: 0 1rem;
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow-x: auto;
   }
   
   .services__item {
     gap: 0.8rem;
+    flex-shrink: 0;
   }
 
   .services__card { 
-    padding: 0; 
+    width: 110px;
+    height: 110px;
     border-radius: 20px;
   }
 
@@ -463,7 +472,7 @@
   }
 
   .services__label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .services__controls {
@@ -511,8 +520,9 @@
   }
 
   .services__title {
-    font-size: 1.25rem;
-    margin-bottom: 1.8rem;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 10px;
   }
 
   .services__title::after {
@@ -522,17 +532,21 @@
   }
 
   .services__track { 
-    grid-auto-columns: calc((100% - 2 * 0.8rem) / 3); 
-    gap: 0.8rem; 
+    gap: 0.6rem; 
     padding: 0 0.8rem; 
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow-x: auto;
   }
   
   .services__item {
     gap: 0.7rem;
+    flex-shrink: 0;
   }
 
   .services__card { 
-    padding: 0; 
+    width: 90px;
+    height: 90px;
     border-radius: 18px;
   }
 
@@ -541,7 +555,7 @@
   }
 
   .services__label {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
   }
 
   .services__controls {
@@ -593,8 +607,9 @@
   }
 
   .services__title {
-    font-size: 1.15rem;
-    margin-bottom: 1.5rem;
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 10px;
   }
 
   .services__title::after {
@@ -602,26 +617,21 @@
   }
 
   .services__track {
+    gap: 0.5rem;
     padding: 0 0.6rem;
-  }
-
-  .services__item {
-    gap: 0.6rem;
-    max-width: 100%;
-  }
-
-  .services__track {
-    grid-auto-columns: calc((100% - 2 * 0.6rem) / 3);
-    gap: 0.6rem;
-    padding: 0 0.6rem;
+    flex-wrap: nowrap;
+    justify-content: center;
+    overflow-x: auto;
   }
 
   .services__item {
     gap: 0.7rem;
+    flex-shrink: 0;
   }
 
   .services__card { 
-    padding: 0;
+    width: 80px;
+    height: 80px;
     border-radius: 18px;
   }
 
@@ -630,7 +640,7 @@
   }
 
   .services__label {
-    font-size: 0.85rem;
+    font-size: 0.7rem;
   }
 
   .services__controls {
@@ -641,8 +651,8 @@
   }
   
   .services__arrow {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     font-size: 1.1rem;
     background: transparent;
     color: #ffffff;
@@ -667,8 +677,8 @@
   }
 
   .services__dot {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
   }
 
   .services__dot.is-active {

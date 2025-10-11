@@ -37,6 +37,7 @@ import WhatsAppButton from './Componants/WhatsAppButton/WhatsAppButton';
 import WhyChooseUs2 from './Componants/WhyChooseUs2/WhyChooseUs2';
 import AllReviews from './Componants/AllReviews/AllReviews';
 import Cart from './Componants/Cart/Cart';
+import BottomNavbar from './Componants/BottomNavbar/BottomNavbar';
 import './App.css';
 
 function App() {
@@ -78,6 +79,7 @@ function App() {
       </main>
       <WhatsAppButton />
       <Footer />
+      <BottomNavbar />
     </div>
   );
 }
